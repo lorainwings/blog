@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Babel 杂谈 | Lorain&#39;s个人主页</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/blog/base/hd-img.jpg">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/base/hd-img.jpg">
+    <meta name="description" content="记录技术&生活">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-quiv="pragma" cotent="no-cache">
+    <meta http-quiv="pragma" cotent="no-cache,must-revalidate">
+    <meta http-quiv="expires" cotent="0">
+    <link rel="preload" href="/blog/assets/css/0.styles.579a9854.css" as="style"><link rel="preload" href="/blog/assets/js/app.fb786ebe.js" as="script"><link rel="preload" href="/blog/assets/js/3.ab657a59.js" as="script"><link rel="preload" href="/blog/assets/js/13.a0e2552d.js" as="script"><link rel="preload" href="/blog/assets/js/4.022282fe.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.57550636.js"><link rel="prefetch" href="/blog/assets/js/11.bb55d292.js"><link rel="prefetch" href="/blog/assets/js/12.1e4a5a90.js"><link rel="prefetch" href="/blog/assets/js/14.db5c8151.js"><link rel="prefetch" href="/blog/assets/js/15.a2f176cb.js"><link rel="prefetch" href="/blog/assets/js/16.5298f88a.js"><link rel="prefetch" href="/blog/assets/js/17.5f2beb7f.js"><link rel="prefetch" href="/blog/assets/js/18.e510d28d.js"><link rel="prefetch" href="/blog/assets/js/19.53886023.js"><link rel="prefetch" href="/blog/assets/js/20.63c552fe.js"><link rel="prefetch" href="/blog/assets/js/21.67e51d39.js"><link rel="prefetch" href="/blog/assets/js/22.42eb15fc.js"><link rel="prefetch" href="/blog/assets/js/23.3a3358e3.js"><link rel="prefetch" href="/blog/assets/js/24.e9e2a625.js"><link rel="prefetch" href="/blog/assets/js/25.096364ce.js"><link rel="prefetch" href="/blog/assets/js/26.0ccf51ed.js"><link rel="prefetch" href="/blog/assets/js/27.054a8201.js"><link rel="prefetch" href="/blog/assets/js/28.f04b9341.js"><link rel="prefetch" href="/blog/assets/js/29.c8add927.js"><link rel="prefetch" href="/blog/assets/js/30.1aef2e5e.js"><link rel="prefetch" href="/blog/assets/js/31.1abd6355.js"><link rel="prefetch" href="/blog/assets/js/32.03df97b0.js"><link rel="prefetch" href="/blog/assets/js/33.c00a706c.js"><link rel="prefetch" href="/blog/assets/js/34.2f847376.js"><link rel="prefetch" href="/blog/assets/js/35.63347724.js"><link rel="prefetch" href="/blog/assets/js/36.9fdc020c.js"><link rel="prefetch" href="/blog/assets/js/37.3392c04b.js"><link rel="prefetch" href="/blog/assets/js/38.ade4c9de.js"><link rel="prefetch" href="/blog/assets/js/39.6aec4626.js"><link rel="prefetch" href="/blog/assets/js/40.9c723d93.js"><link rel="prefetch" href="/blog/assets/js/5.904e5833.js"><link rel="prefetch" href="/blog/assets/js/6.2426cfb9.js"><link rel="prefetch" href="/blog/assets/js/7.7194594b.js"><link rel="prefetch" href="/blog/assets/js/8.e15df7e7.js"><link rel="prefetch" href="/blog/assets/js/9.3ff9262b.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.21b1897d.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.579a9854.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Lorain's个人主页</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/skills/" class="nav-link router-link-active">
+  技术进阶
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法相关
+</a></div><div class="nav-item"><a href="/blog/life/" class="nav-link">
+  记录生活
+</a></div><div class="nav-item"><a href="https://github.com/lorainwings" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/skills/" class="nav-link router-link-active">
+  技术进阶
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  算法相关
+</a></div><div class="nav-item"><a href="/blog/life/" class="nav-link">
+  记录生活
+</a></div><div class="nav-item"><a href="https://github.com/lorainwings" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Client &amp; Side</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/skills/Base64.html" class="sidebar-link">Base64</a></li><li><a href="/blog/skills/Promise.html" class="sidebar-link">Promise</a></li><li><a href="/blog/skills/图片分类.html" class="sidebar-link">图片分类</a></li><li><a href="/blog/skills/Rxjs初探.html" class="sidebar-link">Rxjs 初探</a></li><li><a href="/blog/skills/Generator.html" class="sidebar-link">Generator</a></li><li><a href="/blog/skills/Set &amp; Map.html" class="sidebar-link">Set &amp; Map</a></li><li><a href="/blog/skills/Babel杂谈.html" class="active sidebar-link">Babel 杂谈</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#核心模块" class="sidebar-link">核心模块</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#模块功能区分" class="sidebar-link">模块功能区分</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#babel-配置" class="sidebar-link">babel 配置</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#babel7-4-及以上-最新更新" class="sidebar-link">babel7.4 及以上 最新更新</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#babel-runtime-babel-runtime-corejs2-babel-runtime-corejs3-区别" class="sidebar-link">@babel/runtime &amp; @babel/runtime-corejs2 &amp; @babel/runtime-corejs3 区别</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#npm-scope" class="sidebar-link">Npm-scope</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Babel杂谈.html#参考文件" class="sidebar-link">参考文件</a></li></ul></li><li><a href="/blog/skills/H5定位API.html" class="sidebar-link">H5 定位 API</a></li><li><a href="/blog/skills/Event-loop.html" class="sidebar-link">Event Loop</a></li><li><a href="/blog/skills/服务器推送.html" class="sidebar-link">服务器推送</a></li><li><a href="/blog/skills/浏览器缓存.html" class="sidebar-link">浏览器缓存</a></li><li><a href="/blog/skills/前端安全防范.html" class="sidebar-link">前端安全防范</a></li><li><a href="/blog/skills/初识Typescript.html" class="sidebar-link">初识 Typescript</a></li><li><a href="/blog/skills/Git 常用技巧.html" class="sidebar-link">Git 常用技巧</a></li><li><a href="/blog/skills/Web性能优化.html" class="sidebar-link">Web 性能优化</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Build &amp; Tools</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Design &amp; Patterns</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Server &amp; Side</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="babel-杂谈"><a href="#babel-杂谈" class="header-anchor">#</a> Babel 杂谈</h1> <p>本文主要讲述的是 <code>babel6</code> 的内容, 主要方便于更加了解 babel 的历史, 其中会穿插这讲 <code>babel7</code> 时代的配置方法</p> <h2 id="核心模块"><a href="#核心模块" class="header-anchor">#</a> 核心模块</h2> <p><img src="/blog/skills/babel.jpg" alt="avatar"></p> <p>核心模块包含以下几个:</p> <ul><li><code>babel-core</code>: 仅仅用作语法转化成 ast 的一个包</li> <li><code>babel-cli</code>: 包含两个命令行工具</li> <li><code>babel-runtime</code>: 包含 babel 核心代码, helpes, polyfill 等</li></ul> <h3 id="babel-core"><a href="#babel-core" class="header-anchor">#</a> babel-core</h3> <p>此处不记录, 主要是转换抽象语法树</p> <h3 id="babel-cli"><a href="#babel-cli" class="header-anchor">#</a> babel-cli</h3> <p>主要包含以下模块:</p> <ul><li>babel-node</li> <li>babel-external-helps</li></ul> <h4 id="babel-node"><a href="#babel-node" class="header-anchor">#</a> babel-node</h4> <p>babel-cli 下面的一个 command，主要是实现了 node 执行脚本和命令行写代码的能力。</p> <div class="language-sh extra-class"><pre class="language-sh"><code>node_modules/.bin/babel-node --presets react test.js
+</code></pre></div><p>--presets react 是参数，等同于</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span> <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;react&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token comment">//需要安装babel-preset-react</span>
+</code></pre></div><p>babel-node 又包含了 <code>babel-register</code> 实时编译模块</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">install</span> babel-register --save-dev
+</code></pre></div><p>babel-node 可以通过它编译代码，可以了解到，它其实就是一个编译器。我们同样可以在代码中引入它 require('babel-register')，并通过 node 执行我们的代码。</p> <p>它的原理是通过改写 node 本身的 require，添加钩子，然后在 require 其他模块的时候，就会触发 babel 编译。也就是你引入 require('babel-register')的文件代码，是不会被编译的。只有通过 require 引入的其他代码才会。我们是不是可以理解，babel-node 就是在内存中写入一个临时文件，在顶部引入 babel-register，然后再引入我们的脚本或者代码？</p> <p>举个栗子，还是 node 中执行 jsx，要通过 babel 编译。我们可以把 jsx 的代码 a.js 编译完输出到一个 b.js，然后 node b.js 也是可以执行的。但是太麻烦，不利于开发。让我们看一下通过 register 怎么用</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// register.js 引入 babel-register，并配置。然后引入要执行代码的入口文件</span>
+
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'babel-register'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span> presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'react'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// test.js 这个文件是 jsx...</span>
+<span class="token keyword">const</span> React <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'react'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> elements <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>elements<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code>node register.js  // 执行
+</code></pre></div><h4 id="babel-external-helps"><a href="#babel-external-helps" class="header-anchor">#</a> babel-external-helps</h4> <p>主要用来生成一段代码，包含 babel 所有的 helper 辅助函数, 如果使用了 transform-runtime 模块,就不需要该 单独生成该 helps 了</p> <p><strong>生成方法:</strong></p> <ul><li>执行 babel-external-helpers 生成 helpers.js 文件，</li></ul> <div class="language-sh extra-class"><pre class="language-sh"><code>node_modules/.bin/babel-external-helpers <span class="token operator">&gt;</span> helpers.js
+注意：示例代码的包都是装到项目中的，也就是本地。同样你可以全局安装直接执行。
+</code></pre></div><ul><li>安装 plugin</li></ul> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">install</span> --save-dev babel-plugin-external-helpers
+</code></pre></div><ul><li>然后在 babel 的配置文件加入</li></ul> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+<span class="token property">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;external-helpers&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>入口文件引入 helpers.js</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./helpers.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="babel-runtime"><a href="#babel-runtime" class="header-anchor">#</a> babel-runtime</h3> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>注意使用中需要引入到<code>运行依赖</code>dependencis 中:</p></div> <p>babel-runtime 中主要包括</p> <ul><li><p>核心库 core（主要的语法 转换实现）</p></li> <li><p>辅助函数 helps（调用中间转换的辅助函数）</p></li> <li><p>regenerate（实现了 generator/yeild， async/await）</p></li></ul> <p>使用方式:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">&quot;transform-runtime&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;helpers&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;polyfill&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;regenerator&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;moduleName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-runtime&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="模块功能区分"><a href="#模块功能区分" class="header-anchor">#</a> 模块功能区分</h2> <p>问题: <code>transform-runtime</code>和<code>babel-polyfill</code>都能转换代码, 它们的区别是什么?</p> <p><strong>babel-polyfill</strong></p> <blockquote><p>是一个完整的 es2015+环境, 包含所有的 polyfill, 在 babel6 时代, 如果需要优化包的体积, 必须手动引入 helps;而 babel7 时代的今天, 这个已经成为过去式;</p> <p><strong>主要使用场景是用于一个 大型完整的 web 应用中</strong></p></blockquote> <p><strong>transform-runtime</strong></p> <blockquote><p>transform-runtime 包是利用 plugin 自动识别并替换代码中的新特性，你不需要再引入，只需要装好 babel-runtime 和 配好 plugin 就可以了。好处是按需替换，检测到你需要哪个，就引入哪个 polyfill，如果只用了一部分，打包完的文件体积对比 babel-polyfill 会小很多。而且 transform-runtime 不会污染原生的对象,但是缺失了 es6+ 一些实例方法,比如 数组的 includes, filter, fill; <em>可以理解为是不污染的 polyfill</em></p> <p><strong>主要使用场景是第三方开发工具或者库的开发</strong></p></blockquote> <p>因为 babel 编译 es6 到 es5 的过程中，babel-plugin-transform-runtime 这个插件会自动 polyfill es5 不支持的特性，这些 polyfill 包就是在 babel-runtime 这个包里，所以 babel-runtime 需要安装在 dependency 而不是 devDependency。</p> <p>dependency 和 devDependency 应该能明白吧。假如一个用户 npm install 了你发布在 npm 上的一个包，他只会安装这个包的 dependency 依赖，devDependency 是不会安装的，那么此时假如 babel-runtime 是安装在 devDependency 的话，有些 polyfill 就会找不到了。</p> <p><strong>plugin-transform-runtimee</strong></p> <blockquote><p>一个插件。 babel 编译后的代码是包含了多个重复的帮助函数(helps 代码)而该插件就是将这些重复的代码通过引入公共的 helps 来解决的(从 babel/runtime 中引入)</p></blockquote> <h2 id="babel-配置"><a href="#babel-配置" class="header-anchor">#</a> babel 配置</h2> <p>我将这块分为几部分:</p> <ul><li>presets 和 plugin 区别</li> <li>presets 和 plugin 的排序</li> <li>babel6 的配置</li> <li>babel7 corejs2 的配置</li></ul> <h3 id="presets-和-plugin-区别"><a href="#presets-和-plugin-区别" class="header-anchor">#</a> presets 和 plugin 区别</h3> <p>presets 就是 plugins 的组合，你也可以理解为是套餐,现在主流的几个 presets 为 <code>babel-presets-env</code>,而 babel-presets-env 主要是基本语法的转化,并不包含任何 polyfill, 可以看做是 babel-core</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span> <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;latest&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token operator">===</span> <span class="token punctuation">{</span> <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;env&quot;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre></div><h3 id="presets-和-plugin-的排序"><a href="#presets-和-plugin-的排序" class="header-anchor">#</a> presets 和 plugin 的排序</h3> <p>具体而言，plugins 优先于 presets 进行编译。
+plugins 按照数组的 index 增序(从数组第一个到最后一个)进行编译。
+presets 按照数组的 index 倒序(从数组最后一个到第一个)进行编译。</p> <h3 id="babel6-的-配置"><a href="#babel6-的-配置" class="header-anchor">#</a> Babel6 的 配置</h3> <p>主要分为 <code>env+polyfill+useBuiltIns+helps</code> 和 <code>env+transform-runtime</code> 两套方案</p> <ul><li><code>env+polyfill+useBuiltIns+helps</code>的配置如下:</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">&quot;env&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">&quot;targets&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// 配支持的环境</span>
+          <span class="token string">&quot;browsers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token comment">// 浏览器</span>
+            <span class="token string">&quot;last 2 versions&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;safari &gt;= 7&quot;</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;node&quot;</span><span class="token operator">:</span> <span class="token string">&quot;current&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;modules&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>  <span class="token comment">//设置ES6 模块转译的模块格式 默认是 commonjs</span>
+        <span class="token string">&quot;debug&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// debug，编译的时候 console</span>
+        <span class="token string">&quot;useBuiltIns&quot;</span><span class="token operator">:</span> <span class="token string">'useage|entry'</span><span class="token punctuation">,</span> <span class="token comment">// 是否开启自动支持 polyfill</span>
+        <span class="token string">&quot;include&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 总是启用哪些 plugins</span>
+        <span class="token string">&quot;exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token comment">// 强制不启用哪些 plugins，用来防止某些插件被启用</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugin<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'external-helps'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 需要安装开发时的依赖 babel-extenal-helps 然后生成helps</span>
+<span class="token comment">// 还需在入口文件引入 require('babel-polyfill')</span>
+<span class="token comment">// 还需在入口文件引入生成的helps  require('./helps')</span>
+</code></pre></div><ul><li><code>env+transform-runtime</code>的配置如下:</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 需要安装开发依赖babel-plugin-transform-runtime   (babel7使用@babel/plugin-transform-runtime)。</span>
+<span class="token comment">// 同时还需要安装生产环境的依赖 babel-runtime  (babel7使用@babel/runtime)</span>
+<span class="token punctuation">{</span>
+  <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;env&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">&quot;transform-runtime&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;helpers&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;polyfill&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;regenerator&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;moduleName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-runtime&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="babel7-corejs2-的-配置"><a href="#babel7-corejs2-的-配置" class="header-anchor">#</a> Babel7 corejs2 的 配置</h3> <ul><li><strong>全面方案</strong></li></ul> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">yarn</span> <span class="token function">add</span> babel-loader@8 @babel/core @babel/preset-env -D
+<span class="token function">yarn</span> <span class="token function">add</span> @babel/polyfil
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  presets<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        modules<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 推荐</span>
+        useBuiltIns<span class="token operator">:</span> <span class="token string">'entry'</span><span class="token punctuation">,</span> <span class="token comment">// 推荐</span>
+        corejs<span class="token operator">:</span> <span class="token number">2</span> <span class="token comment">// 新版本的@babel/polyfill包含了core-js@2和core-js@3版本，所以需要声明版本，否则webpack运行时会报warning，此处暂时使用core-js@2版本（末尾会附上@core-js@3怎么用）</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li><strong>按需方案</strong></li></ul> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">yarn</span> <span class="token function">add</span> babel-loader@8 @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+<span class="token function">yarn</span> <span class="token function">add</span> @babel/runtime-corejs2
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  presets<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        modules<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        useBuiltIns<span class="token operator">:</span> <span class="token string">'false'</span> <span class="token comment">// 默认 false, 可选 entry , usage</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/plugin-transform-runtime'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        corejs<span class="token operator">:</span> <span class="token number">2</span> <span class="token comment">// 推荐</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="babel7-4-及以上-最新更新"><a href="#babel7-4-及以上-最新更新" class="header-anchor">#</a> babel7.4 及以上 最新更新</h2> <p>2019 年 3 月 babel 官方更新了@babel/runtime-corejs3,已经支持了实例方法的转换,而不污染全局对象,现在完美的配置如下(可用于库以及 web 应用开发):</p> <p>@babel/preset-env 就是<strong>预设</strong>,也就是插件的集合(比如包括@babel/plugin-transform-classes,@babel/plugin-transform-arrows 等等),以方便用户不用一个一个的写入</p> <p>@babel/preset-env 包括了整个 es6 的插件集合, 不开启 useBuiltIns 将会通过 core-js 来引入转换函数, 也将不污染全局对象等</p> <p>如果开启 useBuiltIns, 那么值为 entry 需要手动引入@babel/polyfill(根据 .browselist 来加入全局垫片),如果值为 usage,那么不需要引入@babel/polyfill,需要开启 corejs 为 2 或者 3(根据 .browselist 以及按需引入垫片)</p> <p>@babel/plugin-transform-runtime 的作用仅仅是配合@babel/runtime-corejs3 来解决引入多次 helps 函数的问题</p> <p>@babel/presets-env 开启 corejs:3 选项, 能够自动转换代码但是不能解决引入多个 helps 的问题</p> <h3 id="关于-corejs3-配置升级"><a href="#关于-corejs3-配置升级" class="header-anchor">#</a> 关于 corejs3 配置升级</h3> <p>@babel/preset-env 提供转译 ES 新语法，剩下的事情（即 ES 的新 API）才是 @babel/polifill 或 @babel/runtime 需要去解决的事情</p> <p><strong>1.polyfill 垫片方案</strong></p> <p>在 web 应用中,满足全部垫片</p> <div class="language-sh extra-class"><pre class="language-sh"><code>// 依赖安装
+<span class="token function">yarn</span> <span class="token function">add</span> babel-loader@8 @babel/core @babel/preset-env -D
+<span class="token function">yarn</span> <span class="token function">add</span> core-js regenerator-runtime
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  presets<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        modules<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 对ES6的模块文件不做转化，以便使用tree shaking、sideEffects等</span>
+        useBuiltIns<span class="token operator">:</span> <span class="token string">'entry'</span><span class="token punctuation">,</span> <span class="token comment">// browserslist环境不支持的所有垫片都导入</span>
+        <span class="token comment">// https://babeljs.io/docs/en/babel-preset-env#usebuiltins</span>
+        <span class="token comment">// https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md</span>
+        corejs<span class="token operator">:</span> <span class="token punctuation">{</span>
+          version<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token comment">// 使用core-js@3</span>
+          proposals<span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code>// 入口的变化
+<span class="token function">import</span> <span class="token string">&quot;core-js/stable&quot;</span>
+<span class="token function">import</span> <span class="token string">&quot;regenerator-runtime/runtime&quot;</span>
+</code></pre></div><p><strong>2. 按需加载方案</strong></p> <p>在第三方库或者工具的开发中</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">yarn</span> <span class="token function">add</span> babel-loader@8 @babel/core @babel/preset-env @babel/plugin-transform-runtime -D
+<span class="token function">yarn</span> <span class="token function">add</span> @babel/runtime-corejs3
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  presets<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/preset-env'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        modules<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//默认 可省略</span>
+        useBuiltIns<span class="token operator">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span> <span class="token comment">//默认 可省略  ==== 此处可以考虑设置为'usage'使打包体积更小</span>
+        targets<span class="token operator">:</span> <span class="token string">'ie &gt;= 8'</span><span class="token punctuation">,</span> <span class="token comment">// 可省略 不写该字段将以.browselist为准</span>
+        corejs<span class="token operator">:</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">'@babel/plugin-transform-runtime'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        corejs<span class="token operator">:</span> <span class="token punctuation">{</span>
+          version<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          proposals<span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        useESModules<span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="babel-runtime-babel-runtime-corejs2-babel-runtime-corejs3-区别"><a href="#babel-runtime-babel-runtime-corejs2-babel-runtime-corejs3-区别" class="header-anchor">#</a> @babel/runtime &amp; @babel/runtime-corejs2 &amp; @babel/runtime-corejs3 区别</h2> <p>这三个包都是一个系列的包,后两者可以视为是前者的升级版</p> <p>@babel/runtime 只包含了基本的语法转换 polyfill;</p> <p>@babel/runtime-corejs2 更新了一些功能增加了 api 的支持,但是没支持实例方法的转换</p> <p>@babel/runtime-corejs3 完善了之前的实例方法的支持,是包含了完整的 polyfill 不污染全局,一般必须加上@babel/preset-env 才能自动引入该包中的 polyfill 到代码中,否则不能自动转换</p> <h2 id="npm-scope"><a href="#npm-scope" class="header-anchor">#</a> <a href="https://docs.npmjs.com/misc/scope" target="_blank" rel="noopener noreferrer">Npm-scope<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></h2> <p>作用:</p> <ol><li>相关包分组在一起,体现在 node_modules 出现在一个文件夹里</li> <li>使用@开头的 scope(范围包),后续都只能由  该账号发布  这个系列的范围包</li> <li>一般用于区分社区的包还是官方的包</li></ol> <h2 id="参考文件"><a href="#参考文件" class="header-anchor">#</a> 参考文件</h2> <ul><li>[附录 1]<a href="https://www.babeljs.cn/docs/babel-plugin-transform-runtime#polyfill" target="_blank" rel="noopener noreferrer">babel-plugin-transform-runtime#polyfill<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>[附录 2]<a href="https://github.com/babel/babel/pull/7646" target="_blank" rel="noopener noreferrer">关于 corejs3<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>[附录 3]<a href="https://segmentfault.com/a/1190000020237817" target="_blank" rel="noopener noreferrer">corejs3更新<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <hr></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">7/10/2020, 4:44:45 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/skills/Set &amp; Map.html" class="prev">
+        Set &amp; Map
+      </a></span> <span class="next"><a href="/blog/skills/H5定位API.html">
+        H5 定位 API
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/blog/assets/js/app.fb786ebe.js" defer></script><script src="/blog/assets/js/3.ab657a59.js" defer></script><script src="/blog/assets/js/13.a0e2552d.js" defer></script><script src="/blog/assets/js/4.022282fe.js" defer></script>
+  </body>
+</html>

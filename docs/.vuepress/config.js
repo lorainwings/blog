@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Lorain\'s个人主页',
-  description: '记录技术&生活',
+  title: 'Lorain\'s 个人主页🖌',
+  description: '山中樗栎年年在 & 看尽西风木槿花',
   locales: {
     '/': {
       lang: 'zh-CN'
@@ -28,11 +28,11 @@ module.exports = {
       indexName: '8X72VKY0SJ'
     },
     nav: [ // 导航栏配置
-      { text: '技术进阶', link: '/skills/' },
-      { text: '算法相关', link: '/algorithm/' },
-      { text: '记录生活', link: '/life/' },
+      { text: '📜技术进阶', link: '/skills/' },
+      { text: '📊算法相关', link: '/algorithm/' },
+      { text: '🍀记录生活', link: '/life/' },
       {
-        text: 'Github', link: 'https://github.com/lorainwings', target: '_blank', rel: ''
+        text: '⭐️Github', link: 'https://github.com/lorainwings', target: '_blank', rel: ''
       }
     ],
     sidebar: {

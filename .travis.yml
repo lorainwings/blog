@@ -1,0 +1,19 @@
+anguage: node_js
+node_js:
+  - lts/*
+before_install:
+  - yarn
+script:
+  - yarn lint
+  - yarn build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN # a token generated on github allowing travis to push code on you repository
+  keep-history: true
+  on:
+    branch: master
+env:
+  global:
+    secure: u5BfmWsl+ECx5UxqIpQukmi5q7z/wli8BwImNPF2quKdxgccgzZBMiV2nQ0qJDM1rGFcE/Svuq5/7WUiccH39r38s74JMd0soCmor41J5oMCCr7lZPPNFcJ8yO4iXLVtGneaQy3/7MWi1AhZRxw/40eaFtoXscDcEvoEeyUp2NaBUGVzwhBgcj/hC3fC0hTCx7w1Pywe3Y3tO30AS0Dx1+0K+AFow/9JKwPt4UivTIDC5chv1KiW1hGeUmOdRvJ3dsUUaky8hnqj94RB29iGnxfHvNxoSYaGL7NDg8k+AaSmERb87G/99MMGhA5tYDdO+KnR+ED0BzoBY7DyldIWLMKXI9SQKoSTswZ78QlXtpXGPzNng5V2XF8pLvUVV67E4z/bkroQp1iV+Hz47r8ui4+QEFFYgNfPBWEWU1NsOUzu/4lfleO8iM+eOGLow/AZYWv4IlDl3KzzDpfz8BA8nqYxCRewCVlX/zdbalXlQDmsxZ8DVS0nwdX/Fn2HYU/V7ZspFYW8EwSHwm7Eh637nwqwUMkC5EYjQ8LO/k3m3rkhDbVEpl4DZponyN+C3fWMlWLrXhMx3gj8Qr5LPI6uFfdzocQ9sw+95rQVZ6iQ4mUwmVLcYeC40ya8EY8RexKg3j6ogEagMcmcAUTSgCabJlDZ11YadZgOREsE8jDlbcI=

@@ -1,0 +1,5 @@
+dist/*
+node_modules/
+
+# Ignore built files except following files
+!docs/.vuepress/

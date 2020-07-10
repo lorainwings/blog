@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const { execSync } = require('child_process');
+
+console.log("pre-commit: Will Synchronize master auto :)")
+
+execSync('git pull origin master')
+
+process.exit(0); // 0 无错误直接通过; 1 有错误会被终止;

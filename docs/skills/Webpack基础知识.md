@@ -1125,6 +1125,15 @@ html 已经通过 script 引入了一些外部 CDN 模块(例如 `vue.min.js`), 
 在 webpack 配置中, 使用 external 选项,将 Vue 给排除在外,以免引起模块多次打包,体积增大
 :::
 
+
+## Long Term Cache
+
+`webpack`的长效缓存总结如下:
+
+
+[![长效缓存脑图](https://wx2.sbimg.cn/2020/07/17/Cn08m.png)](http://naotu.baidu.com/file/1cb8b00b75453d162915f0296cc4c7c8?token=324bd0a3344353dd)
+
+
 ## Git 提交钩子(husky 和 yorkie)
 
 husky 和 yorkie 都是提交钩子, 两者区别参考[原文地址](https://segmentfault.com/a/1190000016750078)

@@ -26,7 +26,7 @@
 
   3、通过 splitChunks 拆分出来的代码
 
-  chunk 包含着 module，可能是一对多也可能是一对一。
+  chunk 可以包含多个 module, 是由module组成的 。
 
 - bundle：
 

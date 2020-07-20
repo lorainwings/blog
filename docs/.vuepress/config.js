@@ -129,9 +129,9 @@ module.exports = {
       transformer: (timestamp, lang) => new Date(timestamp).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
     }],
     ['@vuepress/medium-zoom', {
-      selector: '.theme-default-content img',
+      selector: 'img.image-conclude',
       options: {
-        template: '#zoom-container'
+        margin: 16
       }
     }]
   ]

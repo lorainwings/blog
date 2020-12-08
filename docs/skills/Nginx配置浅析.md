@@ -145,7 +145,7 @@ location @qwe  {
 - add_header
 
 :::tip 概念
-add_header 作用是给请求的响应加上一个头信息,在 Web 的常见用法是设置控制缓存,配置跨域等相关 request header
+add_header 作用是给响应加上一个头信息(`响应头`),在 Web 的常见用法是设置控制缓存,配置跨域等相关 request header
 :::
 
 ```nginx
@@ -158,7 +158,7 @@ location ~* \.(js|css|png|jpg|gif)$ {
 - proxy_set_header
 
 :::tip 概念
-proxy_set_header 允许重新定义或添加字段传递给代理服务器的请求头。该值可以包含文本、变量和它们的组合
+proxy_set_header 允许重新定义或添加字段传递给代理服务器的请求头(`请求头`)。该值可以包含文本、变量和它们的组合
 :::
 
 在没有定义 proxy_set_header 时会继承之前定义的值。默认情况下，只有两个字段被重定义：
@@ -166,6 +166,35 @@ proxy_set_header 允许重新定义或添加字段传递给代理服务器的请
 ```nginx
 proxy_set_header Host $proxy_host;
 proxy_set_header Connection close;
+```
+
+- proxy_cookie_domain & proxy_cookie_path
+
+:::tips 概念
+代理跨域服务中的 `Set-Cookie`, 例如 a.com 调用 b.com 中的服务, b.com 的服务中设置了 `Set-Cookie:xxx; domain:b.com`,导致 a.com 无法设置 cookie
+:::
+
+```nginx
+location ~ /xxx/ {
+  # b.com和a.com都可以使用regrex表示, eg: ~\.?b.com
+  proxy_cookie_domain b.com a.com;
+  # 代理 以/sub/ 开头的路径才能访问cookie
+  proxy_cookie_path /sub/ /;
+  proxy_pass http://b.com;
+}
+```
+
+- X-Forwarded-Proto
+
+:::tips 概念
+`X-Forwarded-Proto` 是一个标准的请求头, 用于 `proxy_set_header`, 表示客户端与代理服务器或者负载均衡服务器之间的连接所采用的传输协议(https/http)
+:::
+
+```nginx
+# 用于解决Set-Cookie中samesite:none;secure导致的无法成功设置cookie的问题
+location / {
+  proxy_set_header X-Forwarded-Proto $scheme;
+}
 ```
 
 ## 单页应用配置

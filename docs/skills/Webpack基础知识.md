@@ -1131,7 +1131,7 @@ html 已经通过 script 引入了一些外部 CDN 模块(例如 `vue.min.js`), 
 `webpack`的长效缓存总结如下:
 
 
-[![长效缓存脑图](https://wx2.sbimg.cn/2020/07/17/Cn08m.png)](http://naotu.baidu.com/file/1cb8b00b75453d162915f0296cc4c7c8?token=324bd0a3344353dd)
+[![长效缓存脑图](https://i.loli.net/2020/07/21/tBnaVH8xhedoQ1E.png)](http://naotu.baidu.com/file/1cb8b00b75453d162915f0296cc4c7c8?token=324bd0a3344353dd)
 
 
 ## Git 提交钩子(husky 和 yorkie)

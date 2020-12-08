@@ -4,6 +4,7 @@
   "description": "个人主页",
   "main": "index.js",
   "scripts": {
+    "cz": "git-cz",
     "lint": "eslint \"**/*.js\" --fix && markdownlint 'docs/**/*.md' --fix",
     "start": "node build/write && node build/lint.js && vuepress dev docs",
     "dev": "vuepress dev docs & nodemon --delay 10 build/sort.js --watch docs/.vuepress/config.js",

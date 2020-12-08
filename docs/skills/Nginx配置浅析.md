@@ -170,7 +170,7 @@ proxy_set_header Connection close;
 
 - proxy_cookie_domain & proxy_cookie_path
 
-:::tips 概念
+:::tip 概念
 代理跨域服务中的 `Set-Cookie`, 例如 a.com 调用 b.com 中的服务, b.com 的服务中设置了 `Set-Cookie:xxx; domain:b.com`,导致 a.com 无法设置 cookie
 :::
 
@@ -186,8 +186,8 @@ location ~ /xxx/ {
 
 - X-Forwarded-Proto
 
-:::tips 概念
-`X-Forwarded-Proto` 是一个标准的请求头, 用于 `proxy_set_header`, 表示客户端与代理服务器或者负载均衡服务器之间的连接所采用的传输协议(https/http)
+:::tip 概念
+X-Forwarded-Proto 是一个标准的请求头, 用于 `proxy_set_header`, 表示客户端与代理服务器或者负载均衡服务器之间的连接所采用的传输协议(https/http)
 :::
 
 ```nginx

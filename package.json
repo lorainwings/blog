@@ -2,7 +2,6 @@
   "name": "lorainwings-blog",
   "version": "1.0.0",
   "description": "个人主页",
-  "main": "index.js",
   "scripts": {
     "cz": "git-cz",
     "lint": "eslint \"**/*.js\" --fix && markdownlint 'docs/**/*.md' --fix",

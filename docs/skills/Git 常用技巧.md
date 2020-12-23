@@ -14,7 +14,7 @@ Git 中有很多冷知识, 本文将记录一部分很实用的小技巧
 
 ### Git Commit Log
 
-![avatr](/blog/skills/git-head.png)
+![avatr](/blog/skills/images/git-head.png)
 
 每条线上的雪花点右侧对应的 commitid,都属于该条线,开始和结尾的公共点共同拥有, 可以使用`--decorate`和`--graph`等参数简化 git 提交历史图
 

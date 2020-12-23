@@ -90,4 +90,4 @@ DNS Prefetch 就是浏览器提供给我们的一个 API。它是 Resource Hint 
 
 下图是请求声明周期中各个阶段的示意图，可以帮助我们理解发送请求（以及接收响应）的流程。
 
-![images](/blog/skills/cdn.png)
+![images](/blog/skills/images/cdn.png)

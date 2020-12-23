@@ -4,7 +4,7 @@
 
 ## 核心模块
 
-![avatar](/blog/skills/babel.jpg)
+![avatar](/blog/skills/images/babel.jpg)
 
 核心模块包含以下几个:
 

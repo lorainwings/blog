@@ -3,7 +3,7 @@
 Git 中有很多冷知识, 本文将记录一部分很实用的小技巧
 
 ## `~` 和 `^` 的区别
- 
+
 该部分的内容, 笔者将分为以下几个部分:
 
 - Git Commit Log
@@ -12,11 +12,9 @@ Git 中有很多冷知识, 本文将记录一部分很实用的小技巧
 - HEAD^^
 - HEAD~~
 
-
 ### Git Commit Log
 
 ![avatr](/blog/skills/git-head.png)
-
 
 每条线上的雪花点右侧对应的 commitid,都属于该条线,开始和结尾的公共点共同拥有, 可以使用`--decorate`和`--graph`等参数简化 git 提交历史图
 
@@ -67,7 +65,6 @@ Git 中有很多冷知识, 本文将记录一部分很实用的小技巧
 这个将选取第一条主线,且回退两个版本,commit-id 将为:
 
     de87e10->b6de943
-
 
 ## 代码统计
 
@@ -152,5 +149,13 @@ git reset -–soft HEAD~1
 ```sh
 git reset -–hard HEAD~1
 ```
+
+## Git 恢复误删的分支
+
+- 使用 git log -g 找回之前提交的 commit_id
+
+- 使用 git branch recover_branch[新分支] commit_id 命令用这个 commit 创建一个分支
+
+- 切换到 recover_branch_abc 分支，检查文件是否存在
 
 ## 未完待续

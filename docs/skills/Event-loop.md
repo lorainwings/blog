@@ -57,37 +57,36 @@ bar();
 上一小节我们讲到了什么是执行栈，大家也知道了当我们执行 JS 代码的时候其实就是往执行栈中放入函数，那么遇到异步代码的时候该怎么办？其实当遇到异步的代码时，会被**挂起**并在需要执行的时候加入到 Task（有多种 Task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为。
 ![事件循环](/blog/skills/images/event-loop-4.jpg)事件循环
 
-
 不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 **微任务**（microtask） 和 **宏任务**（macrotask）。在 ES6 规范中，microtask 称为 `jobs`，macrotask 称为 `task`。下面来看以下代码的执行顺序：
 
 ```js
-console.log('script start');
+console.log("script start");
 
 async function async1() {
   await async2();
-  console.log('async1 end');
+  console.log("async1 end");
 }
 async function async2() {
-  console.log('async2 end');
+  console.log("async2 end");
 }
 async1();
 
 setTimeout(function() {
-  console.log('setTimeout');
+  console.log("setTimeout");
 }, 0);
 
 new Promise(resolve => {
-  console.log('Promise');
+  console.log("Promise");
   resolve();
 })
   .then(function() {
-    console.log('promise1');
+    console.log("promise1");
   })
   .then(function() {
-    console.log('promise2');
+    console.log("promise2");
   });
 
-console.log('script end');
+console.log("script end");
 // script start => async2 end => Promise => script end => promise1 => promise2 => async1 end => setTimeout
 
 //修正后的执行顺序:
@@ -105,11 +104,11 @@ console.log('script end');
 
 ```js
 new Promise((resolve, reject) => {
-  console.log('async2 end');
+  console.log("async2 end");
   // Promise.resolve() 将代码插入微任务队列尾部// resolve 再次插入微任务队列尾部
   resolve(Promise.resolve());
 }).then(() => {
-  console.log('async1 end');
+  console.log("async1 end");
 });
 ```
 
@@ -212,15 +211,15 @@ close callbacks 阶段执行 close 事件
 在上述代码中，`setImmediate` 永远**先执行**。因为两个代码写在 IO 回调中，IO 回调是在 poll 阶段执行，当回调执行完毕后队列为空，发现存在 `setImmediate` 回调，所以就直接跳转到 check 阶段去执行回调了。
 
 上面介绍的都是 macrotask 的执行情况，对于 microtask 来说，它会在以上每个阶段完成前**清空** microtask 队列，下图中的 Tick 就代表了 microtask
-![microtask](http://ww1.sinaimg.cn/large/715b1061ly1g8n5q4v91sj20hw0y30sv.jpg)
+![microtask](/blog/skills/images/715b1061ly1g8n5q4v91sj20hw0y30sv.jpg)
 
 ```js
 setTimeout(() => {
-  console.log('timer21');
+  console.log("timer21");
 }, 0);
 
 Promise.resolve().then(function() {
-  console.log('promise1');
+  console.log("promise1");
 });
 ```
 
@@ -230,21 +229,21 @@ Promise.resolve().then(function() {
 
 ```js
 setTimeout(() => {
-  console.log('timer1');
+  console.log("timer1");
 
   Promise.resolve().then(function() {
-    console.log('promise1');
+    console.log("promise1");
   });
 }, 0);
 
 process.nextTick(() => {
-  console.log('nextTick');
+  console.log("nextTick");
   process.nextTick(() => {
-    console.log('nextTick');
+    console.log("nextTick");
     process.nextTick(() => {
-      console.log('nextTick');
+      console.log("nextTick");
       process.nextTick(() => {
-        console.log('nextTick');
+        console.log("nextTick");
       });
     });
   });

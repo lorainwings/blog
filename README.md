@@ -20,7 +20,7 @@
 - [commit lint](https://github.com/features/actions): `git`提交信息检查工具
 - [github actions](https://github.com/features/actions): `github-actions`自动化构建工具
 
-## Command 
+## Command
 
 安装依赖
 
@@ -34,7 +34,7 @@ yarn
 yarn start
 ```
 
-![new-cli.jpg](http://ww1.sinaimg.cn/large/715b1061gy1gglybnvsu6j20cc07y75b.jpg)
+![new-cli.jpg](/blog/skills/images/715b1061gy1gglybnvsu6j20cc07y75b.jpg)
 
 打包 dist:
 

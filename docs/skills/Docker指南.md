@@ -35,18 +35,18 @@ docker是LXC(Linux容器虚拟化)的产物, 为了提升集成环境的部署�
 
 在 Windows 和 Mac 中安装 Docker, 通过下面链接直接安装桌面应用, 非常简单
 
-- [Docker for Windows]( https://store.docker.com/editions/community/docker-ce-desktop-windows )
-- [Docker for Mac]( https://store.docker.com/editions/community/docker-ce-desktop-mac )
+- [Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+- [Docker for Mac](https://store.docker.com/editions/community/docker-ce-desktop-mac)
 
 在 Linux 系统中安装 Docker, 通过下面命令即可
 
 ```sh
 # CentOS
   sudo yum install yum-utils device-mapper-persistent-data lvm2
- 
+
   sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
   sudo yum install docker-ce
- 
+
   sudo systemctl enable docker
   sudo systemctl start docker
 ```
@@ -54,12 +54,12 @@ docker是LXC(Linux容器虚拟化)的产物, 为了提升集成环境的部署�
 ```sh
 # Debian
   sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
- 
+
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian  (lsb_release -cs) stable"
   sudo apt-get update
   sudo apt-get install docker-ce
- 
+
   sudo systemctl enable docker
   sudo systemctl start docker
 ```
@@ -79,7 +79,7 @@ docker是LXC(Linux容器虚拟化)的产物, 为了提升集成环境的部署�
 
 在 Macos 和 Windows 的 desktop 桌面端, 需要打开编辑配置, 如下图加入配置即可
 
-![docker镜像源配置](http://ww1.sinaimg.cn/large/715b1061ly1gg9b3nuhkyj21ls10oq7r.jpg)
+![docker镜像源配置](/blog/skills/images/715b1061ly1gg9b3nuhkyj21ls10oq7r.jpg)
 
 ## 操作镜像
 
@@ -97,7 +97,7 @@ docker pull ubuntu
 docker images
 ```
 
-**搜索镜像**: `docker search [name/tag/id]` 
+**搜索镜像**: `docker search [name/tag/id]`
 
 ```sh
 docker search ubuntu
@@ -125,7 +125,7 @@ docker rmi ubuntu:latest
 
 ### 操作命令
 
-**创建容器**: `docker create [name/tag/id]` 
+**创建容器**: `docker create [name/tag/id]`
 
 ```sh
 docker create nginx:1.12
@@ -137,7 +137,7 @@ docker create nginx:1.12
 docker start nginx
 ```
 
-**创建并启动**: `docker run --name [name] -d [name/tag/id]` 
+**创建并启动**: `docker run --name [name] -d [name/tag/id]`
 
 ```sh
 docker run --name nginx -d nginx:1.12
@@ -174,7 +174,7 @@ docker rm nginx -f
 docker exec nginx more /etc/hostname
 ```
 
-**容器开启命令行交互**: 
+**容器开启命令行交互**:
 
 ```sh
 docker exec -it nginx bash
@@ -197,13 +197,12 @@ docker attach nginx
 - 数据卷容器
 - 备份迁移
 
-
 #### 挂载方式
 
 在 docker 中, 为了方便与外面数据传递, docker 基于底层存储实现，提供了三种适用于不同场景的文件系统挂载方式：Bind Mount、Volume 和 Tmpfs Mount。
 
-- Bind Mount 
-  
+- Bind Mount
+
 能够直接将宿主操作系统中的目录和文件挂载到容器内的文件系统中，通过指定容器外的路径和容器内的路径，就可以形成挂载映射关系，在容器内外对文件的读写，都是相互可见的。
 
 `使用方式: -v <host-path>:<container-path>`
@@ -212,7 +211,7 @@ docker attach nginx
 docker run -d --name nginx -v /webapp/html:/usr/share/nginx/html nginx:1.12
 ```
 
-- Volume 
+- Volume
 
 也是从宿主操作系统中挂载目录到容器内，只不过这个挂载的目录由 Docker 进行管理，我们只需要指定容器内的目录，不需要关心具体挂载到了宿主操作系统中的哪里。
 
@@ -326,7 +325,7 @@ docker run --rm --volumes-from appdata -v /backup:/backup ubuntu tar xvf /backup
 - 容器互联
 - 暴露端口
 - 别名连接
-- 创建网络 
+- 创建网络
 - 端口映射
 
 #### 核心组成
@@ -359,7 +358,7 @@ docker run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes --expose 13306 --ex
 这里我们为 MySQL 暴露了 13306 和 23306 这两个端口，暴露后我们可以在 docker ps 中看到这两个端口已经成功的打开。
 
 ```sh
-$ docker ps 
+$ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                       NAMES
 3c4e645f21d7        mysql:5.7           "docker-entrypoint.s…"   4 seconds ago       Up 3 seconds        3
 ```
@@ -378,7 +377,7 @@ sudo docker run -d --name webapp --link mysql:database webapp:latest
 String url = "jdbc:mysql://database:3306/webapp";
 ```
 
-#### 创建网络 
+#### 创建网络
 
 在 Docker 里，我们也能够创建网络，形成自己定义虚拟子网的目的。
 
@@ -476,7 +475,7 @@ FROM <image>[:<tag>] [AS <name>]
 FROM <image>[@<digest>] [AS <name>]
 ```
 
-**RUN**: `RUN` 指令之后，我们直接拼接上需要执行的命令，在构建时，Docker 就会执行这些命令，并将它们对文件系统的修改记录下来，形成镜像的变化; 
+**RUN**: `RUN` 指令之后，我们直接拼接上需要执行的命令，在构建时，Docker 就会执行这些命令，并将它们对文件系统的修改记录下来，形成镜像的变化;
 
 主要用来用来指定构建镜像(build image) 过程中执行的命令
 
@@ -488,11 +487,11 @@ RUN ["executable", "param1", "param2"]`
 **CMD**: 指定容器运行时(`docker run`) 默认命令和参数，可以被 `docker run *** command` 的命令所覆盖
 
 ::: tip RUN & CMD & ENTRYPOINT 区别:
-  `RUN`不接任何命令, 同时没有`ENTRYPOINT`指定, 将默认执行 CMD
+`RUN`不接任何命令, 同时没有`ENTRYPOINT`指定, 将默认执行 CMD
 
-  `RUN`不接任何命令, 同时存在`ENTRYPOINT`和`CMD`, `CMD`将作为`ENTRYPOINT`的参数
-  
-  `RUN`后接 command, 同时存在`ENTRYPOINT`和`CMD`, `RUN`后的参数作为`ENTRYPOINT`的参数, `CMD`被忽略
+`RUN`不接任何命令, 同时存在`ENTRYPOINT`和`CMD`, `CMD`将作为`ENTRYPOINT`的参数
+
+`RUN`后接 command, 同时存在`ENTRYPOINT`和`CMD`, `RUN`后的参数作为`ENTRYPOINT`的参数, `CMD`被忽略
 :::
 
 ```sh
@@ -500,7 +499,6 @@ CMD ["executable","param1","param2"]
 CMD ["param1","param2"]
 CMD command param1 param2
 ```
-
 
 **ENTRYPOINT**: 容器运行时执行的命令，但是可以接受`docker run *** args`或者 CMD 提供的参数，一般用于容器配置初始化
 
@@ -540,7 +538,6 @@ COPY 与 ADD 指令的定义方式完全一样，需要注意的仅是当我们�
 对比 `COPY` 与 `ADD`，两者的区别主要在于 `ADD` 能够支持使用网络端的 `URL` 地址作为 src 源，并且在源文件被识别为压缩包时，自动进行解压，而 `COPY` 没有这两个能力。
 
 虽然看上去 `COPY` 能力稍弱，但对于那些不希望源文件被解压或没有网络请求的场景，COPY 指令是个不错的选择。
-
 
 ### Dockerfile 构建
 

@@ -25,7 +25,7 @@ module.exports = {
 
 配置好开启服务后发现无法打开页面, 提示证书不受信任
 
-![证书不信任](http://ww1.sinaimg.cn/large/715b1061ly1gcc70vluwxj20f80m8gos.jpg)
+![证书不信任](/blog/skills/images/715b1061ly1gcc70vluwxj20f80m8gos.jpg)
 
 在`webpack-dev-serve`开启`https`后, `会自动生成一个证书在node_modules/webpack-dev-server/ssl/server.pem`, 需要将该证书导入到系统中,并开启始终信任
 

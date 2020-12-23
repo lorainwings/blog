@@ -6,7 +6,7 @@
     "cz": "git-cz",
     "lint": "eslint \"**/*.js\" --fix && markdownlint 'docs/**/*.md' --fix",
     "start": "node build/write && node build/lint.js && vuepress dev docs",
-    "dev": "vuepress dev docs & nodemon --delay 10 build/sort.js --watch docs/.vuepress/config.js",
+    "dev": "vuepress dev docs; nodemon --delay 10 build/sort.js --watch docs/.vuepress/config.js",
     "build": "vuepress build docs",
     "commit": "export ALL_PROXY=socks5://127.0.0.1:1080 && git add -A && echo '请输入提交信息:' && read log &&  git cm -m $log && git push origin master"
   },

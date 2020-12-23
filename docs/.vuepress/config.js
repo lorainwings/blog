@@ -54,7 +54,8 @@ module.exports = {
             '前端安全防范',
             '初识Typescript',
             'Git 常用技巧',
-            'Web性能优化'
+            'Web性能优化',
+            '正则表达式小知识'
           ]
         },
         {

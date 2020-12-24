@@ -117,16 +117,16 @@ new Promise((resolve, reject) => {
 所以 Event Loop 执行顺序如下所示：
 
 - 首先执行同步代码，这属于宏任务
-- 当执行完所有同步代码后，执行栈为空，查询是否有异步代码需要执行
+- 当执行完所有同步代码后，**如果执行栈为空**，查询是否有异步代码需要执行
 - 执行所有微任务
-- 当执行完所有微任务后，如有必要会渲染页面
+- 当执行完所有微任务后，如有必要会**渲染页面**(JS 解析器交出线程权)
 - 然后开始下一轮 Event Loop，执行宏任务中的异步代码，也就是 `setTimeout` 中的回调函数
 
 所以以上代码虽然 `setTimeout` 写在 `Promise` 之前，但是因为 `Promise` 属于微任务而 `setTimeout` 属于宏任务，所以会有以上的打印。
 
 微任务包括 `process.nextTick` ，`promise` ，`MutationObserver`。
 
-宏任务包括 `script` ， `setTimeout` ，`setInterval` ，`setImmediate` ，`I/O` ，`UI rendering`。
+宏任务包括 `script` ， `setTimeout` ，`setInterval` ，`setImmediate` ，`I/O`(网络 IO/事件 IO) ，`UI rendering`，`MessageChannel`，`PostMessage`。
 
 这里很多人会有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 `script` ，浏览器会**先执行一个宏任务**，接下来有异步代码的话才会先执行微任务。
 

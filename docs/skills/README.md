@@ -20,6 +20,7 @@
 - [Git 常用技巧](/skills/Git%20常用技巧/)
 - [Web性能优化](/skills/Web性能优化/)
 - [正则表达式小知识](/skills/正则表达式小知识/)
+- [WebWorker实践小结](/skills/WebWorker实践小结/)
 ### > Build & Tools
 - [简易打包工具实现](/skills/简易打包工具实现/)
 - [Webpack基础知识](/skills/Webpack基础知识/)

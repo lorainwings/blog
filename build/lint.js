@@ -25,7 +25,7 @@ const modifyContext = (fullPath, ctxArr) => {
 };
 
 const checkDiff = () => {
-  const diff = execSync('git diff --name-only HEAD docs/.vuepress/config.js', { encoding: 'utf8' });
+  const diff = execSync('git diff --name-only HEAD docs/', { encoding: 'utf8' });
   if (diff) return 1;
   return 0;
 };

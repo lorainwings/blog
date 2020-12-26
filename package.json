@@ -52,7 +52,8 @@
   },
   "lint-staged": {
     "docs/**/*.{md,markdown}": [
-      "yarn lint"
+      "node build/lint.js",
+      "git add"
     ]
   },
   "directories": {

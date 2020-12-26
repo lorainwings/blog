@@ -1,17 +1,15 @@
 # WebWorker 实践小结
 
-WebWork 的独立线程为浏览器的密集型计算减负, 具体的介绍可以参考阮大的文章[Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html), 本文主要探讨如何在实际的项目中如何使用。
+WebWork 允许浏览器开辟一条独立的线程且不影响主线程的运行, 一般用于处理浏览器的密集型计算。本文主要探讨如何在实际的项目中运用它, 具体的介绍可以参考阮大的文章[Web Worker 使用教程](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
 
-文章结构主要分以下两部分:
+文章结构主要分以下两部分
 
-- 业务代码和 WebWorker 代码
-- WebWorker 使用外部依赖
+- 代码实现
+- 构建配置
 
-## 业务代码和 worker 代码
+## 代码实现
 
-- 主线程代码
-
-**main.js**:
+- 主线程代码[**main.js**]
 
 ```js
 // relative path to the worker from current file
@@ -24,9 +22,7 @@ wk.onmessage = d => {
 };
 ```
 
-- WebWorker 线程代码
-
-**worker 线程代码**:
+- WebWorker 线程代码[**worker 线程代码**]
 
 ```js
 // use import like you would in any other file
@@ -52,16 +48,16 @@ self.onmessage = e => {
 };
 ```
 
-## WebWorker 使用外部依赖
+## 构建配置
 
-要让 WebWorker 使用外部依赖, 可以使用 Webpack 来加载第三方包, 也可以直接使用原生的`importScript`来引入第三方包;
+要让 WebWorker 使用外部依赖, 可以使用 Webpack 来加载第三方包, 也可以直接使用原生的`importScript`来引入第三方包
 
-### 配置打包工具
+### 配置 Webpack
 
-此处以`Webpack`为例子, 在该打包工具中, 可以将 WebWorker 的模块配置为两种方式:
+此处以`Webpack`为例子, 可以通过以下两种方式来使用`Webworker`
 
-- 配置 worker 为 entry
-- 配置 worker 为 loader
+- 配置 worker 模块 到 entry
+- 通过 worker-loader 加载
 
 ```js
 // webpack.config.js entry

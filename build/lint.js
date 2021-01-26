@@ -15,12 +15,14 @@ const generate = (items, dir) => {
   return ctxArr;
 };
 
-const modifyContext = (fullPath, ctxArr) => {
+const modifyContext = (fullPath, ctxArr, key) => {
   let ctxOrigin = fs.readFileSync(fullPath, { encoding: 'utf8' });
-  ctxArr.forEach(([title, ctx]) => {
-    const reg = new RegExp(`(?<=\\> ${title})[^#]+(?=(###|$))`, 'gmi');
-    ctxOrigin = ctxOrigin.replace(reg, `\n\r${ctx}\n\r`);
-  });
+  const map = {
+    '/skills/': '# 前端技术\n\n本版块主要记录前端相关知识的分类, 以下是目录\n\n ## 目录\n\n',
+    '/algorithm/': '# 计算机基础\n\n本篇记录`设计模式`和`数据结构算法`相关知识,以下是所有目录\n\n ## 目录\n\n',
+    '/life/': '# 其他记录\n\n此处空空如也\n\n ## 目录\n\n'
+  };
+  ctxOrigin = ctxArr.reduce((content, [title, ctx]) => `${content}###${title}\n\r${ctx}\n\r`, map[key]);
   fs.writeFileSync(fullPath, ctxOrigin);
 };
 
@@ -40,7 +42,7 @@ const main = () => {
       const dir = key.replace(/[\/\\]/, '');
       const filePath = path.resolve(__dirname, `../docs/${dir}/README.md`);
       const ctxArr = generate(items, dir);
-      modifyContext(filePath, ctxArr);
+      modifyContext(filePath, ctxArr, key);
     }
     execSync('yarn lint', { stdio: 'inherit' });
     console.log('💚 ReadMe内容已完成排序!'.green.bold);

@@ -28,9 +28,9 @@ module.exports = {
       indexName: '8X72VKY0SJ'
     },
     nav: [ // 导航栏配置
-      { text: '📜技术进阶', link: '/skills/' },
-      { text: '📊算法相关', link: '/algorithm/' },
-      { text: '🍀记录生活', link: '/life/' },
+      { text: '📜前端技术', link: '/skills/' },
+      { text: '📊计算机基础', link: '/algorithm/' },
+      { text: '🍀其他记录', link: '/life/' },
       {
         text: '⭐️Github', link: 'https://github.com/lorainwings', target: '_blank', rel: ''
       }
@@ -38,30 +38,32 @@ module.exports = {
     sidebar: {
       '/skills/': [
         {
-          title: 'Client & Side',
+          title: 'JS语言基础',
           children: [
-            'Base64',
             'Promise',
-            '图片分类',
-            'Rxjs初探',
             'Generator',
             'Set & Map',
-            'Babel杂谈',
-            'H5定位API',
             'Event-loop',
-            '服务器推送',
-            '浏览器缓存',
-            '前端安全防范',
+            '读你不知道的JS',
+            '正则表达式小知识'
+          ]
+        },
+        {
+          title: 'H5及框架',
+          children: [
+            'Base64',
+            '图片分类',
+            'Rxjs初探',
+            'H5定位API',
             '初识Typescript',
             'Git 常用技巧',
-            'Web性能优化',
-            '正则表达式小知识',
             'WebWorker实践小结'
           ]
         },
         {
-          title: 'Build & Tools',
+          title: '前端工程化',
           children: [
+            'Babel杂谈',
             '简易打包工具实现',
             'Webpack基础知识',
             'Webpack模块实现',
@@ -69,15 +71,17 @@ module.exports = {
           ]
         },
         {
-          title: 'Design & Patterns',
+          title: '安全及性能优化',
           children: [
-            '简易依赖注入实现',
-            '发布订阅 & 观察者模式'
+            '浏览器缓存',
+            '前端安全防范',
+            'Web性能优化'
           ]
         },
         {
-          title: 'Server & Side',
+          title: '服务端入门',
           children: [
+            '服务器推送',
             'Crontab',
             '查看日志',
             'Docker指南',
@@ -88,14 +92,21 @@ module.exports = {
       ],
       '/algorithm/': [
         {
-          title: '基础算法',
+          title: '设计模式',
           children: [
-            '递归算法'
+            '简易依赖注入实现',
+            '发布订阅 & 观察者模式'
           ]
         },
         {
-          title: '高级算法',
+          title: '数据结构',
           children: []
+        },
+        {
+          title: '算法刷题',
+          children: [
+            '递归算法'
+          ]
         }
       ],
       '/life/': [

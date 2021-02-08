@@ -232,7 +232,9 @@ console.log(baz.a); //333
    var bar = foo()
    就是这样。对于正常的函数调用来说，理解了这些知识你就可以明白 this 的绑定原理了。
 
-不过......凡事总有例外。
+## 例外情况
+
+- this 被忽略
 
 当把 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind, 值被忽略, 变成默认绑定;
 其实更**安全**的做法是通过`Object.create(null)`作为忽略时候的参数
@@ -247,4 +249,41 @@ foo.apply(ø, [2, 3]); // a:2, b:3
 // 使用 bind(..) 进行柯里化
 var bar = foo.bind(ø, 2);
 bar(3); // a:2, b:3
+```
+
+- 间接引用
+
+创建一个函数的“间接引用”，在这 种情况下，调用这个函数会应用默认绑定规则。
+
+```js
+function foo() {
+  console.log(this.a);
+}
+var a = 2;
+var o = { a: 3, foo: foo };
+var p = { a: 4 };
+o.foo(); // 3
+(p.foo = o.foo)(); // 2
+```
+
+- 箭头函数
+
+箭头函数不使用 this 的四种标准规则，而是根据外层(函数或者全局)作用域来决 定 this, 具体来说，箭头函数会继承外层函数调用的 this 绑定(无论 this 绑定到什么)。这 其实和 ES6 之前代码中的 self = this 机制一样。
+
+```js
+function foo() {
+  // 返回一个箭头函数
+  return a => {
+    //this 继承自 foo()
+    console.log(this.a);
+  };
+}
+var obj1 = {
+  a: 2
+};
+var obj2 = {
+  a: 3
+};
+var bar = foo.call(obj1);
+bar.call(obj2); // 2, 不是 3 !
 ```

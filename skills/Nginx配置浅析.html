@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nginx 配置浅析 | Lorain&#39;s 个人主页🖌</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/blog/base/hd-img.jpg">
+    <link rel="manifest" href="/blog/manifest.json">
+    <link rel="apple-touch-icon" href="/blog/base/hd-img.jpg">
+    <meta name="description" content="山中樗栎年年在 & 看尽西风木槿花">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-quiv="pragma" cotent="no-cache">
+    <meta http-quiv="pragma" cotent="no-cache,must-revalidate">
+    <meta http-quiv="expires" cotent="0">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.4a9580f2.css" as="style"><link rel="preload" href="/blog/assets/js/app.a10b644b.js" as="script"><link rel="preload" href="/blog/assets/js/3.8c44ca0e.js" as="script"><link rel="preload" href="/blog/assets/js/26.33e13135.js" as="script"><link rel="preload" href="/blog/assets/js/4.57980df9.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.930d1339.js"><link rel="prefetch" href="/blog/assets/js/11.cdeb8098.js"><link rel="prefetch" href="/blog/assets/js/12.c8cde42b.js"><link rel="prefetch" href="/blog/assets/js/13.a227fbb7.js"><link rel="prefetch" href="/blog/assets/js/14.6af4650a.js"><link rel="prefetch" href="/blog/assets/js/15.6eaa9661.js"><link rel="prefetch" href="/blog/assets/js/16.061f9c22.js"><link rel="prefetch" href="/blog/assets/js/17.45db52d8.js"><link rel="prefetch" href="/blog/assets/js/18.5f9597d2.js"><link rel="prefetch" href="/blog/assets/js/19.b4ea0dfc.js"><link rel="prefetch" href="/blog/assets/js/20.7f19d52d.js"><link rel="prefetch" href="/blog/assets/js/21.d8589558.js"><link rel="prefetch" href="/blog/assets/js/22.f566dc38.js"><link rel="prefetch" href="/blog/assets/js/23.b69d67c8.js"><link rel="prefetch" href="/blog/assets/js/24.39640fa3.js"><link rel="prefetch" href="/blog/assets/js/25.31cd7e03.js"><link rel="prefetch" href="/blog/assets/js/27.23cfcf44.js"><link rel="prefetch" href="/blog/assets/js/28.643ece28.js"><link rel="prefetch" href="/blog/assets/js/29.25710728.js"><link rel="prefetch" href="/blog/assets/js/30.b6c183c8.js"><link rel="prefetch" href="/blog/assets/js/31.92ae948f.js"><link rel="prefetch" href="/blog/assets/js/32.0644f365.js"><link rel="prefetch" href="/blog/assets/js/33.6665e618.js"><link rel="prefetch" href="/blog/assets/js/34.4dc117ac.js"><link rel="prefetch" href="/blog/assets/js/35.e24a02ac.js"><link rel="prefetch" href="/blog/assets/js/36.74def00a.js"><link rel="prefetch" href="/blog/assets/js/37.3f39d15e.js"><link rel="prefetch" href="/blog/assets/js/38.78379f7b.js"><link rel="prefetch" href="/blog/assets/js/39.e12c28f2.js"><link rel="prefetch" href="/blog/assets/js/40.eced14bc.js"><link rel="prefetch" href="/blog/assets/js/41.f104551f.js"><link rel="prefetch" href="/blog/assets/js/42.01bf67c8.js"><link rel="prefetch" href="/blog/assets/js/43.c704b38a.js"><link rel="prefetch" href="/blog/assets/js/44.556172d7.js"><link rel="prefetch" href="/blog/assets/js/45.14839569.js"><link rel="prefetch" href="/blog/assets/js/5.f65f384e.js"><link rel="prefetch" href="/blog/assets/js/6.5cf5829a.js"><link rel="prefetch" href="/blog/assets/js/7.46c43574.js"><link rel="prefetch" href="/blog/assets/js/8.97b71141.js"><link rel="prefetch" href="/blog/assets/js/9.5a3cc726.js"><link rel="prefetch" href="/blog/assets/js/vendors~docsearch.8f04fa7f.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.4a9580f2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">Lorain's 个人主页🖌</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/skills/" class="nav-link router-link-active">
+  📜前端技术
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  📊计算机基础
+</a></div><div class="nav-item"><a href="/blog/life/" class="nav-link">
+  🍀其他记录
+</a></div><div class="nav-item"><a href="https://github.com/lorainwings" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ⭐️Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/skills/" class="nav-link router-link-active">
+  📜前端技术
+</a></div><div class="nav-item"><a href="/blog/algorithm/" class="nav-link">
+  📊计算机基础
+</a></div><div class="nav-item"><a href="/blog/life/" class="nav-link">
+  🍀其他记录
+</a></div><div class="nav-item"><a href="https://github.com/lorainwings" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ⭐️Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS语言基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>H5及框架</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端工程化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安全及性能优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>服务端入门</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/skills/服务器推送.html" class="sidebar-link">服务器推送</a></li><li><a href="/blog/skills/Crontab.html" class="sidebar-link">Crontab</a></li><li><a href="/blog/skills/查看日志.html" class="sidebar-link">查看日志</a></li><li><a href="/blog/skills/Docker指南.html" class="sidebar-link">Docker 指南</a></li><li><a href="/blog/skills/DockerForV2ray.html" class="sidebar-link">Docker For V2ray</a></li><li><a href="/blog/skills/Nginx配置浅析.html" class="active sidebar-link">Nginx 配置浅析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/skills/Nginx配置浅析.html#概念-作用" class="sidebar-link">概念 &amp; 作用</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Nginx配置浅析.html#文章结构" class="sidebar-link">文章结构</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Nginx配置浅析.html#常用配置指令" class="sidebar-link">常用配置指令</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Nginx配置浅析.html#单页应用配置" class="sidebar-link">单页应用配置</a></li><li class="sidebar-sub-header"><a href="/blog/skills/Nginx配置浅析.html#多页应用配置" class="sidebar-link">多页应用配置</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nginx-配置浅析"><a href="#nginx-配置浅析" class="header-anchor">#</a> Nginx 配置浅析</h1> <h2 id="概念-作用"><a href="#概念-作用" class="header-anchor">#</a> 概念 &amp; 作用</h2> <p>Nginx 是一个轻量级、高性能、稳定性高、并发性好的 HTTP 和反向代理服务器; 它具有有很多非常优越的特性, 应用非常广泛</p> <ul><li><p>反向代理</p></li> <li><p>负载均衡</p></li> <li><p>HTTP 服务器（包含动静分离）</p></li> <li><p>正向代理</p></li></ul> <h2 id="文章结构"><a href="#文章结构" class="header-anchor">#</a> 文章结构</h2> <p>本文将主要分析一下在 Web 应用中的常用配置, 为了方便阅读, 笔者将文章主要分为以下几个部分:</p> <ul><li>常用配置指令</li> <li>单页应用配置</li> <li>多页应用配置</li></ul> <h2 id="常用配置指令"><a href="#常用配置指令" class="header-anchor">#</a> 常用配置指令</h2> <ul><li>location</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>location 实现了对请求的细分处理，有些 URI 返回静态内容，有些分发到后端服务器等, 支持的语法 <code>location [=|~|~*|^~|@] pattern { ... }</code>;</p></div> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 修饰符 = : 要求路径完全匹配&lt;精确匹配&gt;</span>
+<span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>abc <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 修饰符 ~ : 区分大小写的正则匹配&lt;正则匹配&gt;</span>
+<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">^</span><span class="token operator">/</span>abcd$ <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 修饰符 ~* : 不区分大小写的正则匹配&lt;正则匹配&gt;</span>
+<span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token operator">^</span><span class="token operator">/</span>abcd$  <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 修饰符 ^~ : 匹配成功立刻停止&lt;前缀匹配&gt;</span>
+<span class="token keyword">location</span> <span class="token operator">^</span><span class="token operator">~</span> <span class="token operator">/</span>abcd  <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 无修饰符  : 最长匹配&lt;前缀匹配&gt;</span>
+<span class="token keyword">location</span> <span class="token operator">/</span>document <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><p>以上多个匹配符都有的情况下, 匹配符的优先级是<strong>先精确匹配，没有则查找带有 ^~的前缀匹配，没有则进行正则匹配，最后才返回最长匹配下的前缀匹配结果, 多个最长匹配规则相同以书写顺序先后</strong></p> <p>可以使用以下伪代码来理解这个匹配顺序</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code>function <span class="token function">match</span><span class="token punctuation">(</span>uri<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  rv <span class="token operator">=</span> NULL
+
+  <span class="token keyword">if</span> uri in exact_match<span class="token punctuation">:</span>
+    <span class="token keyword">return</span> exact_match<span class="token punctuation">[</span>uri<span class="token punctuation">]</span>
+
+  <span class="token keyword">if</span> uri in prefix_match<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> prefix_match<span class="token punctuation">[</span>uri<span class="token punctuation">]</span> is <span class="token string">'^~'</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span> prefix_match<span class="token punctuation">[</span>uri<span class="token punctuation">]</span>
+    else<span class="token punctuation">:</span>
+      rv <span class="token operator">=</span> prefix_match<span class="token punctuation">[</span>uri<span class="token punctuation">]</span> <span class="token operator">/</span><span class="token operator">/</span> 注意这里没有 <span class="token keyword">return</span>，且这里是最长匹配
+
+  <span class="token keyword">if</span> uri in regex_match<span class="token punctuation">:</span>
+    <span class="token keyword">return</span> regex_match<span class="token punctuation">[</span>uri<span class="token punctuation">]</span> <span class="token operator">/</span><span class="token operator">/</span> 按文件中顺序，找到即返回
+  <span class="token keyword">return</span> rv
+</code></pre></div><ul><li>rewrite</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念 &amp; 语法</p> <p>rewrite 实现了用正则表达式（PCRE）改变请求的 URI，返回重定向，并有条件地选择配置</p> <p><strong>语法:</strong> <span style="color:green;">rewrite regex replacement [flag]</span></p></div> <p>1- 作用域</p> <p><code>rewrite</code>的作用域可以出现在 <code>server</code>, <code>location</code>, <code>if</code>块</p> <p>2- 匹配顺序</p> <p><code>rewrite</code> 规则优先级:</p> <div class="language-优先级 extra-class"><pre class="language-text"><code>执行server块的rewrite指令 -&gt; 执行location匹配 -&gt; 执行指定的locaiton中的rewrite
+</code></pre></div><p>3- flag 选项
+<code>flag</code> 有以下几个选项</p> <table><thead><tr><th>字段</th> <th>作用</th></tr></thead> <tbody><tr><td>last</td> <td>停止 rewrite 检测,开始搜索与更改后的 URI 相匹配的 location</td></tr> <tr><td>break</td> <td>停止 rewrite 检测,跳出不再检测</td></tr> <tr><td>redirect</td> <td>返回 302 临时重定向，地址栏会显示跳转后的地址</td></tr> <tr><td>permanent</td> <td>返回 301 永久重定向，地址栏会显示跳转后的地址（浏览器下次直接访问重定向后的地址</td></tr></tbody></table> <p>4- 注意点
+<code>rewrite</code>在配置中, 重写字符串, 带上协议 http 与不带协议处理方式是不一样的:</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 第一种情况</span>
+location / <span class="token punctuation">{</span>
+    <span class="token comment"># 当匹配 正则表达式 /test1/(.*)时 请求将被临时重定向到 http://www.$1.com</span>
+    <span class="token comment"># 相当于 flag 写为 redirect</span>
+    rewrite /test1/<span class="token punctuation">(</span>.*<span class="token punctuation">)</span> http://www.<span class="token variable">$1</span>.com<span class="token punctuation">;</span>
+    <span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 在浏览器中输入 127.0.0.1:8080/test1/baidu</span>
+<span class="token comment"># 则临时重定向到 www.baidu.com</span>
+<span class="token comment"># 后面的 return 指令将没有机会执行了</span>
+
+<span class="token comment"># 第二种情况</span>
+location / <span class="token punctuation">{</span>
+    rewrite /test1/<span class="token punctuation">(</span>.*<span class="token punctuation">)</span> www.<span class="token variable">$1</span>.com<span class="token punctuation">;</span>
+    <span class="token builtin class-name">return</span> <span class="token number">200</span> <span class="token string">&quot;ok&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 发送请求如下</span>
+<span class="token comment"># curl 127.0.0.1:8080/test1/baidu</span>
+<span class="token comment"># ok</span>
+
+<span class="token comment"># 此处没有带http:// 所以只是简单的重写。请求的 uri 由 /test1/baidu 重写为 www.baidu.com</span>
+<span class="token comment"># 因为会顺序执行 rewrite 指令 所以 下一步执行 return 指令 响应了 ok</span>
+</code></pre></div><ul><li>try_files</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>try_files 指令是按顺序检测文件的存在性,并且返回第一个找到文件的内容,如果第一个找不到就会自动找第二个,依次查找.其实现的是内部跳转.以下举例说明:</p></div> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">/</span>abc <span class="token punctuation">{</span>
+  <span class="token comment"># 检测文件4.html和5.html,如果存在正常显示,不存在就去查找@qwe值</span>
+  <span class="token keyword">try_files</span> <span class="token operator">/</span><span class="token number">4.</span>html <span class="token operator">/</span><span class="token number">5.</span>html @qwe<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">location</span> @qwe  <span class="token punctuation">{</span>
+  <span class="token comment"># 跳转到百度页面</span>
+  <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$   <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>add_header</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>add_header 作用是给响应加上一个头信息(<code>响应头</code>),在 Web 的常见用法是设置控制缓存,配置跨域等相关 request header</p></div> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> \<span class="token punctuation">.</span><span class="token punctuation">(</span>js<span class="token operator">|</span>css<span class="token operator">|</span>png<span class="token operator">|</span>jpg<span class="token operator">|</span>gif<span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
+    <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control no<span class="token operator">-</span>store<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><ul><li>proxy_set_header</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>proxy_set_header 允许重新定义或添加字段传递给代理服务器的请求头(<code>请求头</code>)。该值可以包含文本、变量和它们的组合</p></div> <p>在没有定义 proxy_set_header 时会继承之前定义的值。默认情况下，只有两个字段被重定义：</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$proxy_host</span><span class="token punctuation">;</span>
+<span class="token keyword">proxy_set_header</span> Connection close<span class="token punctuation">;</span>
+</code></pre></div><ul><li>proxy_cookie_domain &amp; proxy_cookie_path</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>代理跨域服务中的 <code>Set-Cookie</code>, 例如 a.com 调用 b.com 中的服务, b.com 的服务中设置了 <code>Set-Cookie:xxx; domain:b.com</code>,导致 a.com 无法设置 cookie</p></div> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span>xxx<span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token comment"># b.com和a.com都可以使用regrex表示, eg: ~\.?b.com</span>
+  <span class="token keyword">proxy_cookie_domain</span> b<span class="token punctuation">.</span>com a<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+  <span class="token comment"># 代理 以/sub/ 开头的路径才能访问cookie</span>
+  <span class="token keyword">proxy_cookie_path</span> <span class="token operator">/</span>sub<span class="token operator">/</span> <span class="token operator">/</span><span class="token punctuation">;</span>
+  <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>b<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>X-Forwarded-Proto</li></ul> <div class="custom-block tip"><p class="custom-block-title">概念</p> <p>X-Forwarded-Proto 是一个标准的请求头, 用于 <code>proxy_set_header</code>, 表示客户端与代理服务器或者负载均衡服务器之间的连接所采用的传输协议(https/http)</p></div> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token comment"># 用于解决Set-Cookie中samesite:none;secure导致的无法成功设置cookie的问题</span>
+<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>Proto <span class="token variable">$scheme</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="单页应用配置"><a href="#单页应用配置" class="header-anchor">#</a> 单页应用配置</h2> <p>当前前端界早已被单页应用一统天下了, <code>Nginx</code>在单页应用中的配置, 主要是配置缓存, 负载均衡, 反向代理接口等等; 笔者就将在实际应用的配置放在这里吧</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span> host<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+
+    <span class="token comment"># item名字可以自定义</span>
+    <span class="token comment"># 有三种配置方式</span>
+    <span class="token keyword">upstream</span> host<span class="token punctuation">.</span>com <span class="token punctuation">{</span>
+        <span class="token comment"># weight的值越高被派发请求的概率也就越高，可以根据服务器配置的不同来设置。</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8882</span> weight<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8881</span> weight<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token comment"># down表示不参与负载均衡</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8880</span> down<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">upstream</span> host<span class="token punctuation">.</span>com <span class="token punctuation">{</span>
+        <span class="token comment"># 根据客户端IP来分配服务器，比如我第一次访问请求被派发给了192.168.101.60这台服务器,那么我之后的请求就都会发送这台服务器上，</span>
+        <span class="token comment"># 这样的话session共享的问题也就解决了</span>
+        <span class="token keyword">ip_hash</span><span class="token punctuation">;</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8881</span><span class="token punctuation">;</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8880</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">upstream</span> host<span class="token punctuation">.</span>com <span class="token punctuation">{</span>
+        <span class="token comment"># 根据添加的服务器判断哪台服务器分的连接最少就把请求给谁</span>
+        least_conn<span class="token punctuation">;</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8881</span>
+        <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8880</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">alias</span> <span class="token operator">/</span>home<span class="token operator">/</span>www<span class="token operator">/</span>bop<span class="token operator">/</span><span class="token punctuation">;</span>
+        <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">add_header</span> Cache<span class="token operator">-</span>Control no<span class="token operator">-</span>store<span class="token punctuation">;</span>
+        <span class="token comment"># item是在上面命名的</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>host<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment"># 配置接口代理</span>
+    <span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">rewrite</span> <span class="token operator">/</span>api<span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">/</span>$<span class="token number">1</span>  <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+        <span class="token comment"># proxy_set_header Host  $http_host;</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>host<span class="token punctuation">.</span>com<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">access_log</span> <span class="token operator">/</span>home<span class="token operator">/</span>logs<span class="token operator">/</span>nginx<span class="token operator">/</span>bop<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log monitor buffer<span class="token operator">=</span><span class="token number">32</span>k flush<span class="token operator">=</span><span class="token number">5</span>s<span class="token punctuation">;</span>
+    <span class="token keyword">error_log</span> <span class="token operator">/</span>home<span class="token operator">/</span>logs<span class="token operator">/</span>nginx<span class="token operator">/</span>bop<span class="token punctuation">.</span>error<span class="token punctuation">.</span>log<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h2 id="多页应用配置"><a href="#多页应用配置" class="header-anchor">#</a> 多页应用配置</h2> <p>之前团队专门搭建了一个做活动的多页应用框架, 服务于各个活动应用开发, 其中多页应用的 Nginx 映射了各个活动的<code>BaseUrl</code>, 这里放个最关键的部分吧</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span>detail <span class="token punctuation">{</span>
+    <span class="token keyword">set</span> <span class="token variable">$first_path</span> $<span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">root</span> <span class="token operator">/</span>home<span class="token operator">/</span>www<span class="token operator">/</span>growth<span class="token operator">-</span>upgrade<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token variable">$first_path</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">-</span>e <span class="token variable">$request_filename</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">/</span><span class="token variable">$first_path</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html last<span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">location</span> <span class="token operator">~</span> <span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">set</span> <span class="token variable">$first_path</span> $<span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">set</span> <span class="token variable">$following_path</span> $<span class="token number">2</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">root</span> <span class="token operator">/</span>home<span class="token operator">/</span>www<span class="token operator">/</span>growth<span class="token operator">-</span>upgrade<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token variable">$first_path</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">-</span>e <span class="token variable">$request_filename</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">/</span><span class="token variable">$first_path</span><span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html last<span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2/18/2021, 4:50:29 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/skills/DockerForV2ray.html" class="prev">
+        Docker For V2ray
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/blog/assets/js/app.a10b644b.js" defer></script><script src="/blog/assets/js/3.8c44ca0e.js" defer></script><script src="/blog/assets/js/26.33e13135.js" defer></script><script src="/blog/assets/js/4.57980df9.js" defer></script>
+  </body>
+</html>

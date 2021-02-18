@@ -12,6 +12,7 @@
 - [Event-loop](/skills/Event-loop/)
 - [读你不知道的JS](/skills/读你不知道的JS/)
 - [正则表达式小知识](/skills/正则表达式小知识/)
+- [浏览器界面更新流程](/skills/浏览器界面更新流程/)
 
 ### H5及框架
 

@@ -27,23 +27,23 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "41dcfc6934d2ad02e931919964e3dcab"
+    "revision": "98c74121cc8faa092338417fd48de0a9"
   },
   {
     "url": "algorithm/index.html",
-    "revision": "069efac0070dee92478aff1c8411a632"
+    "revision": "b5eb5af43fc87d6eec41305c943efb10"
   },
   {
     "url": "algorithm/发布订阅 & 观察者模式.html",
-    "revision": "05c48b6b2b2ace8d742f1e464aced286"
+    "revision": "ae8b5f27abf20756c123a50148a875bb"
   },
   {
     "url": "algorithm/简易依赖注入实现.html",
-    "revision": "d81b12b96811f8ed7557c05400765ff6"
+    "revision": "b4cb0893b9d8b126a6cfdb066f135a96"
   },
   {
     "url": "algorithm/递归算法.html",
-    "revision": "e6be391ca54d3ce275cd63be8c588432"
+    "revision": "d315d0967a5856437d626fb5c0bfb318"
   },
   {
     "url": "assets/css/0.styles.4a9580f2.css",
@@ -118,8 +118,8 @@ self.__precacheManifest = [
     "revision": "f408ca860e82f62efb258a2f870ecde8"
   },
   {
-    "url": "assets/js/26.c22cdd3d.js",
-    "revision": "4d8346c8df201d1d9822a7a97c21f1c1"
+    "url": "assets/js/26.2036ef0c.js",
+    "revision": "253900bfecc7bd7698e446298cf21ae3"
   },
   {
     "url": "assets/js/27.a7430202.js",
@@ -238,8 +238,8 @@ self.__precacheManifest = [
     "revision": "760f8a95d4567612905a9d0244c9ab42"
   },
   {
-    "url": "assets/js/app.f46bb55c.js",
-    "revision": "e7b2732b651bb492b55f98fac22e3f18"
+    "url": "assets/js/app.d31e5ea6.js",
+    "revision": "08aeb80f660123f18fef95a91848eb97"
   },
   {
     "url": "assets/js/vendors~docsearch.8f04fa7f.js",
@@ -251,7 +251,7 @@ self.__precacheManifest = [
   },
   {
     "url": "guide.html",
-    "revision": "3cd488025a30cde5e69f250d4ed5666a"
+    "revision": "9284413caf3f128be1a9d3dc5af0a162"
   },
   {
     "url": "icons/icon-144.png",
@@ -275,23 +275,23 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "8b46528a2421055b98886dc637d15827"
+    "revision": "6d7c4091d92c3c693aaa8b5dbe11e520"
   },
   {
     "url": "life/index.html",
-    "revision": "3e3869ea1890b6d75b831ab15af2ca2f"
+    "revision": "9c18fb6918be78cde0da167da4d2fde8"
   },
   {
     "url": "life/意志力.html",
-    "revision": "45c9706b90257dc051ddce777bdd89af"
+    "revision": "07df3a36b2ffd57600e1bf0385a8041c"
   },
   {
     "url": "skills/Babel杂谈.html",
-    "revision": "2a2163d97977d0211f144bd8eff0d54e"
+    "revision": "ec7092e38d1608d7d0352ab62e1cf07e"
   },
   {
     "url": "skills/Base64.html",
-    "revision": "9bce035b4077bb3e52f54eb879537b63"
+    "revision": "02350cb3144306dedf20bd05d42f625f"
   },
   {
     "url": "skills/browser-cache/715b1061ly1g8w6fmvtcyj20yq18egsv.jpg",
@@ -315,35 +315,35 @@ self.__precacheManifest = [
   },
   {
     "url": "skills/Crontab.html",
-    "revision": "013a75354d40c78df0cccc76abc5ade0"
+    "revision": "c5a360668c38c7b39e4a4aa7710585f1"
   },
   {
     "url": "skills/DockerForV2ray.html",
-    "revision": "46b2065bd8973efc979b609f7d8d0c1f"
+    "revision": "98031ccc88d2a5e282ca6893d3e1a778"
   },
   {
     "url": "skills/Docker指南.html",
-    "revision": "5f899e08dd86465a702f47172cc7f061"
+    "revision": "ddfd57d3c3d6dd811b250e033399e34e"
   },
   {
     "url": "skills/Event-loop.html",
-    "revision": "f6def51ef1be9da1e24f56c83ea7cb24"
+    "revision": "31431d382d827efb6a4f9b38d986eb96"
   },
   {
     "url": "skills/Generator.html",
-    "revision": "9a252d4fe4f55e1dd9221ab005cb6184"
+    "revision": "9cb8fdb4b9c88f8fc5bcdd2fcb613a99"
   },
   {
     "url": "skills/Git 常用技巧.html",
-    "revision": "8337a6e9fb23de49c3a2774ac3253ae0"
+    "revision": "5b37e7d166a1b5c40a2f01b5f4ee61da"
   },
   {
     "url": "skills/H5定位API.html",
-    "revision": "61fa2663a9cbdf9eed0ade82857c6ea2"
+    "revision": "0317724484cdb63f5d1f3721eb8778b7"
   },
   {
     "url": "skills/HTTP协议备忘录.html",
-    "revision": "bce61bd2ef30124e5c7516492bb857ab"
+    "revision": "c34a1a907b6739e4926132647a81ad38"
   },
   {
     "url": "skills/images/715b1061gy1gglybnvsu6j20cc07y75b.jpg",
@@ -394,8 +394,8 @@ self.__precacheManifest = [
     "revision": "aee75ef0e29b6a883aaf06270f57c5f6"
   },
   {
-    "url": "skills/images/four-disconnect.png",
-    "revision": "0a652c11f235e5da8c2fdeab61cb873c"
+    "url": "skills/images/four-handshake.jpg",
+    "revision": "7499fe662dc15c4a52c9373953bcce5c"
   },
   {
     "url": "skills/images/git-head.png",
@@ -411,19 +411,19 @@ self.__precacheManifest = [
   },
   {
     "url": "skills/index.html",
-    "revision": "56d906d7bb3225f722c4c7fbbfab9b84"
+    "revision": "ca08341d1b7a04d1570dee742152393c"
   },
   {
     "url": "skills/JS编译过程分析.html",
-    "revision": "21d876bed325d65275a133aac73a7db2"
+    "revision": "0c691617487854914d19204bec7ff444"
   },
   {
     "url": "skills/Nginx配置浅析.html",
-    "revision": "c4cee6d8b24fd34bbebd14720922ab36"
+    "revision": "d2d3275d686124cb10799ec7d9641dc9"
   },
   {
     "url": "skills/Promise.html",
-    "revision": "63d6c19be70756e17e46af33d5f37df2"
+    "revision": "97513344c8df31ead51ec4fd3fb7b0a0"
   },
   {
     "url": "skills/publisher-subscriber/715b1061gy1g9ifot9j54j20zk0d70t3.jpg",
@@ -439,7 +439,7 @@ self.__precacheManifest = [
   },
   {
     "url": "skills/Rxjs初探.html",
-    "revision": "657683106b9d620ec84d0452a1d29051"
+    "revision": "844d3350ec3796b3d48ce64a6c159aac"
   },
   {
     "url": "skills/servers-push/715b1061gy1g9anrh70jkj20hs0f70tp.jpg",
@@ -471,67 +471,67 @@ self.__precacheManifest = [
   },
   {
     "url": "skills/Set & Map.html",
-    "revision": "95b594dd63a2114b51b9c2c0d07b6643"
+    "revision": "88d9db5b609331330244e375aa6895b5"
   },
   {
     "url": "skills/Webpack基础知识.html",
-    "revision": "3c2b6a81c85335a947d6dc2ada8bdcc4"
+    "revision": "31330779707b8457e573c5422a57e436"
   },
   {
     "url": "skills/Webpack异步加载.html",
-    "revision": "d83e6d545bdee37b9540223b5d074055"
+    "revision": "ecb9678689c5c7e8a5e967d18ca2ab9c"
   },
   {
     "url": "skills/Webpack模块实现.html",
-    "revision": "891374d78fc64c60779ca54d54703874"
+    "revision": "df26b0710175b523bbf16642a0b83615"
   },
   {
     "url": "skills/WebWorker实践小结.html",
-    "revision": "05d2186902e496472ea811dc43648947"
+    "revision": "de11026871cc5f86a39ec0ed11599877"
   },
   {
     "url": "skills/Web性能优化.html",
-    "revision": "59f758fc58200490d38ff2c740b380a0"
+    "revision": "7a8c80deb2b5d4487833134e2e9a156e"
   },
   {
     "url": "skills/初识Typescript.html",
-    "revision": "b26ca9d468eef3bed40b84cbaed3ae16"
+    "revision": "124ce32c8ddb0e694260d6decb4434ae"
   },
   {
     "url": "skills/前端安全防范.html",
-    "revision": "b5c48f096c7f0b0c715a39295a0010b2"
+    "revision": "8bac56064a50c20632f711cfa0797859"
   },
   {
     "url": "skills/图片分类.html",
-    "revision": "39333e0eabccc0e267eb8e51f80939fb"
+    "revision": "233be68c544a4838b8c84a9f12ebd379"
   },
   {
     "url": "skills/服务器推送.html",
-    "revision": "c3df5641c84887294fff17b56093c2bf"
+    "revision": "436ed655f1bc1a61e84365e56bd0421c"
   },
   {
     "url": "skills/查看日志.html",
-    "revision": "299d1dbf9fd82a7b7c12ff8aa9b95219"
+    "revision": "2126961ab7ee6deef619a40cf372c42a"
   },
   {
     "url": "skills/正则表达式小知识.html",
-    "revision": "d5b3fd2aad634cb33f2fd9c6fd6b8aaf"
+    "revision": "332b01a0904928a62d2aadc8b8e2b2eb"
   },
   {
     "url": "skills/浏览器界面更新流程.html",
-    "revision": "ee3bfa15050ce31077431f530a52c978"
+    "revision": "685c37a2d969a1a2ab870aa3e5e4f56a"
   },
   {
     "url": "skills/浏览器缓存.html",
-    "revision": "d08a4965029015009a90173d9e4e3cd8"
+    "revision": "27bbbe41908bbb9c86093ca3379e2819"
   },
   {
     "url": "skills/简易打包工具实现.html",
-    "revision": "eec3ee29a1bea3a22ab1fc58e0eb1276"
+    "revision": "b1aabdaa8c1867850236d9efca24601d"
   },
   {
     "url": "skills/读你不知道的JS.html",
-    "revision": "00f865acb659e3f19ab4492dada4bc52"
+    "revision": "cc4b41cd37ec11c8914082ec8f68767b"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

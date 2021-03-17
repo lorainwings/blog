@@ -5,33 +5,53 @@
 ## 常见状态码
 
 100 Continue：上传大文件前使用
+
 101 Switch Protocols：协议升级使用
+
 102 Processing：服务器已经收到并正在处理请求，但无响应可用
 
 200 OK：成功返回响应
+
 201 Created：有新资源在服务器端被成功创建
+
 202 Accepted：服务器接受并开始处理请求，但请求未处理完成
+
 206 Partial Content：使用 range 协议时返回部分响应内容时的响
 
 300：是一个特殊的重定向状态码，会返回一个有多个链接选项的页面，由用户自行选择
+
 301: 永久重定向
+
 302: 临时重定向
+
 303：类似于 302，重定向后的请求方法改为 GET 方法
+
 304：是一个特殊的重定向状态码，服务端验证过期缓存有效后，要求客户端使用该缓存
+
 307：类似于 302，含义比 302 更明确，重定向后请求的方法和实体不允许变动
+
 308：类似于 301，代表永久重定向，重定向后请求的方法和实体不允许变动
 
 400 Bad Request：服务器认为客户端出现了错误，但不明确，一般是 HTTP 请求格式错误
+
 401 Unauthorized：用户认证信息确实或者不正确
+
 403 Forbidden：服务器理解请求的含义，但没有权限执行
+
 404 Not Found：服务器没有找到对应的资源
+
 405 请求方法不支持
+
 407 Proxy Authentication Required：对需要经由代理的请求，认证信息未通过代理服务器的验证
+
 408 Request Timeout：服务器接收请求超时
 
 500 Internal Server Error：服务器内部错误，且不属于以下错误类型
+
 502 Bad Gateway：代理服务器无法获取到合法响应
+
 503 Service Unavailable：服务器资源尚未准备好处理当前请求
+
 505 HTTP Version Not Supported：请求使用的 HTTP 协议版本不支持
 
 ## GET 和 POST 的区别
@@ -77,7 +97,7 @@ TCP 是主机对主机层的传输控制协议，提供可靠的连接服务，�
 
 ### 四次挥手
 
-![四次挥手](/blog/skills/images/four-disconnect.png)
+![四次挥手](/blog/skills/images/four-handshake.jpg)
 
 第一次挥手: 发起方向被动方发送报文，Fin、Ack、Seq，表示已经没有数据传输了。并进入 FIN_WAIT_1 状态。(第一次挥手：由浏览器发起的，发送给服务器，我请求报文发送完了，你准备关闭吧)
 

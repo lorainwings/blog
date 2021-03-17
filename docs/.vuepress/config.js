@@ -88,7 +88,8 @@ module.exports = {
             '查看日志',
             'Docker指南',
             'DockerForV2ray',
-            'Nginx配置浅析'
+            'Nginx配置浅析',
+            'HTTP协议备忘录'
           ]
         }
       ],

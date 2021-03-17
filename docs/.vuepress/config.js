@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Lorain\'s 个人主页🖌',
+  title: 'Lorain\'s Diary',
   description: '山中樗栎年年在 & 看尽西风木槿花',
   locales: {
     '/': {

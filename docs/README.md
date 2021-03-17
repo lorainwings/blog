@@ -2,7 +2,7 @@
 home: true
 sidebarDepth: 2
 heroImage: /base/hd-img.jpg
-actionText: Welcome📖
+actionText: Welcome
 actionLink: /skills/
 features:
   - title: 前端技术

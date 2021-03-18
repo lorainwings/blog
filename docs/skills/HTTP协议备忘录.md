@@ -95,6 +95,12 @@ TCP 是主机对主机层的传输控制协议，提供可靠的连接服务，�
 
 第三次握手：主机 A 收到后检查 ack number 是否正确，即第一次发送的 seq number+1，以及位码 ack 是否为 1，若正确，主机 A 会再发送 ack number=(主机 B 的 seq+1)，ack=1，主机 B 收到后确认 seq 值与 ack=1 则连接建立成功。
 
+> 客户端发起连接请求，发送 SYN 包（SYN=i）到服务器，并进入到 SYN-SEND 状态，等待服务器确认
+
+> 服务器收到 SYN 包后，必须确认客户的 SYN（ack=i+1），同时自己也发送一个 SYN 包（SYN=k），即 SYN+ACK 包，此时服务器进入 SYN-RECV 状态
+
+> 客户端收到服务器的 SYN+ACK 包，向服务器发送确认报 ACK（ack=k+1），此后客户端和服务器进入 ESTABLISHED 状态，双方可以开始传送数据
+
 ### 四次挥手
 
 ![四次挥手](/blog/skills/images/four-handshake.jpg)

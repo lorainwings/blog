@@ -59,7 +59,8 @@ module.exports = {
             'H5定位API',
             '初识Typescript',
             'Git 常用技巧',
-            'WebWorker实践小结'
+            'WebWorker实践小结',
+            'React生态中的设计理论'
           ]
         },
         {

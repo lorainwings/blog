@@ -158,4 +158,100 @@ git reset -–hard HEAD~1
 
 - 切换到 recover_branch_abc 分支，检查文件是否存在
 
+## 回滚本地分支
+
+### git reset (--mixed) [commit id]
+
+回退到指定版本,且会将暂存区的内容和本地已提交的内容全部恢复到未暂存的状态,不影响原来本地文件(未提交的也不受影响)
+该参数`--mixed`是`git reset`的默认参数
+例如需要回退一个版本, 执行下面命令:
+
+```sh
+// 回退一个版本
+git reset HEAD~1
+```
+
+需要回退到某个 commitid(`提交id通过git log查看`), 如需要回滚到`4a50c9f`,则执行
+
+```sh
+git reset 4a50c9f
+```
+
+### git reset --soft [commit id]
+
+回退到指定版本,不清空暂存区,将已提交的内容恢复到暂存区,不影响原来本地的文件(未提交的也不受影响)
+
+### git reset --hard [commit id]
+
+回退到指定版本,清空暂存区,将已提交的内容的版本恢复到本地,本地的文件也将被恢复的版本替换
+
+### git revert [commit id]
+
+生成一个新的 commit，将指定的 commit 内容从当前分支上撤除
+
+### git revert -m [parent Id][commit id]
+
+当需要 revert 回滚两个分支合并后的一个公共提交, 此时需要加上`-m`选项来确认是第几个父 id(`也就是确认回滚哪一条分支`); 可以通过`git show [提交id]` 来查看有几个父 id
+
+例子: 回滚到 cad132423 这个公共提交的第一个父节点
+`git revert -m 1 cad132423`
+
+## 回滚远端分支
+
+案例: 需要回滚 master 上面的代码到 4a50c9f
+
+### 第一种方法
+
+以下是步骤:
+
+- 先回滚到需要移除的 comitid 的前一次正确 commitid
+
+```sh
+git checkout -b remote-v1 4a50c9f
+```
+
+- 合并策略为强行保留现在的分支(假合并)
+  合并中完全采用 remote-v1 的代码
+
+```sh
+git merge -s ours master
+```
+
+- 推送到远程分支
+
+```sh
+// 也可以使用 git push origin HEAD:master
+git push origin remote-v1:master
+```
+
+### 第二种方法
+
+以下是步骤:
+
+- 先移除有代码错误的 comitid, 撤销一连串的 id 用`commidId..commitId`, 参数`--no-commit`是用于后面手动提交
+
+```sh
+git revert --no-commit f7742cd..551c408
+```
+
+- 正常提交代码
+
+```sh
+git commit -a -m 'This reverts commit 7e345c9 and 551c408'
+git push origin HEAD:master
+```
+
+### 第三种方法[极不推荐]
+
+该方法会强行覆盖远端分支的代码, 稍微不慎, 会导致其他人的代码丢失
+
+以下是步骤:
+
+- 使用文章开头的方式回滚本地分支
+- 强行提交到远端分支
+
+```sh
+git push origin master -f
+
 ## 未完待续
+```

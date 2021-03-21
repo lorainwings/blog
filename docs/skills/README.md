@@ -24,6 +24,7 @@
 - [初识Typescript](/skills/初识Typescript/)
 - [Git 常用技巧](/skills/Git%20常用技巧/)
 - [WebWorker实践小结](/skills/WebWorker实践小结/)
+- [React生态中的设计理论](/skills/React生态中的设计理论/)
 
 ### 前端工程化
 

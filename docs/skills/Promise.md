@@ -1,8 +1,6 @@
 # 深度解析实现 A+规范的 Promise
 
-想优雅地进行异步操作，必须要熟识一个极其重要的概念 —— Promise。它是取代传统回调，实现同步链式写法的解决方案；是理解 generator、async/await 的关键。但是 Promise 对于初学者来说，并不是很好理解，其中的概念纷杂，且抽象程度较高。
-
-![图片](https://pic2.zhimg.com/v2-7b6068c2a23d7fcb002410515c0eb919.webp)
+异步编程日新月异, 发展历程从回调函数嵌套到统一的异步编程 `Promise`, 再到后来的`Generator`实现, 以及终极解决方案`async/await`。这些背后的原理是什么呢？ 本文来深度剖析 `Promise` 的原理及实现
 
 ## Promise 的优缺点
 
@@ -22,7 +20,7 @@
 
 - 内部错误处理必须设置回调, 不会抛到外部
 
-## 从 Promise 化一个 API 谈起
+## Promise 使用
 
 熟悉微信小程序开发的读者应该知道，我们使用 wx.request() 在微信小程序环境中发送一个网络请求。参考官方文档，具体用法如下：
 
@@ -763,16 +761,6 @@ Promise.prototype.then = function(onfulfilled, onrejected) {
   }
 };
 ```
-
-下一讲我们将会继续实现 Promise、处理 Promise 实例的返回问题，以及更多的 Promise 静态方法。
-
-在上一讲中，我们渐进式地实现了一个貌似能工作的 Promise，并配以实例进行完善。如果你觉得已经接近「大功告成」了，其实这才刚刚开始。Promise 这个概念相对来说比较复杂，下面继续一边研究、一边实现吧。
-
-先来回顾一下这两节课的相关知识点：
-
-![图片](https://pic2.zhimg.com/v2-26717d99278999786e79d258620c24ff.webp)
-
-话不多说，让我们开始吧。
 
 ## 从 Promise then 的链式调用继续谈起
 

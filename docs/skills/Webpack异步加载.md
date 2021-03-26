@@ -416,6 +416,23 @@ return __webpack_require__(__webpack_require__.s = "./src/main.js");
 
 > 注意源码中的 primose 使用非常精妙，主模块加载完成异步模块才 resolve()
 
+## Webpack5 新特性
+
+### 构建时特性
+
+- 内置静态资源构建能力(静态文件 raw-load/file-loader/url-loader)
+- 内置文件系统缓存,加速二次构建能力
+- 内置 WebAssembly 编译及异步加载能力
+- 内置 WebWorker 构建能力
+
+### 运行时特性
+
+- 移除内置 Node-Polyfill, 需用户自由引入
+- 更优的构建体积
+- 深度 TreeShaking 能力(能够支持深层嵌套的 export 的 Tree Shaking)
+- 更好的 Long-Term-Cache(ChunkId 不变, 缓存失效率变低)
+- 顶层 Await 支持
+
 ## 总结
 
 1.  webpack 对于 ES 模块/CommonJS 模块的实现，是基于自己实现的 webpack_require，所以代码能跑在浏览器中。

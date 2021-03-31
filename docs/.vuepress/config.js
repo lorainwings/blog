@@ -78,7 +78,8 @@ module.exports = {
           children: [
             '浏览器缓存',
             '前端安全防范',
-            'Web性能优化'
+            'Web性能优化',
+            '性能优化总结'
           ]
         },
         {
@@ -142,9 +143,9 @@ module.exports = {
       serviceWorker: true,
       updatePopup: true
     }],
-    ['@vuepress/last-updated', {
-      transformer: (timestamp, lang) => new Date(timestamp).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
-    }],
+    // ['@vuepress/last-updated', {
+    //   transformer: (timestamp, lang) => new Date(timestamp).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
+    // }],
     ['@vuepress/medium-zoom', {
       selector: 'img.image-conclude',
       options: {

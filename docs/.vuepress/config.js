@@ -70,7 +70,8 @@ module.exports = {
             '简易打包工具实现',
             'Webpack基础知识',
             'Webpack模块实现',
-            'Webpack异步加载'
+            'Webpack异步加载',
+            'Webpack源码流程分析'
           ]
         },
         {

@@ -26,7 +26,7 @@
 
   3、通过 splitChunks 拆分出来的代码
 
-  chunk 可以包含多个 module, 是由module组成的 。
+  chunk 可以包含多个 module, 是由 module 组成的 。
 
 - bundle：
 
@@ -39,21 +39,21 @@
 如果想将自己的工程作为一个第三方库提供给其他人使用,可以参考[配置方法](https://github.com/webpack/webpack/tree/master/examples/multi-part-library)
 
 ```js
-var path = require('path');
+var path = require("path");
 module.exports = {
   // mode: "development || "production",
   entry: {
-    alpha: './alpha',
-    beta: './beta'
+    alpha: "./alpha",
+    beta: "./beta"
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'MyLibrary.[name].js',
+    path: path.join(__dirname, "dist"),
+    filename: "MyLibrary.[name].js",
     // 征对多页面,可以配置为数组,MyLibrary作为整体的命名空间,[name]作为该空间的属性调用
     // 示例地址:
     //https://github.com/webpack/webpack/tree/master/examples/multi-part-library
-    library: ['MyLibrary', '[name]'],
-    libraryTarget: 'umd'
+    library: ["MyLibrary", "[name]"],
+    libraryTarget: "umd"
   }
 };
 ```
@@ -150,11 +150,11 @@ module: {
   loaders: [
     {
       test: /\.(less|css)$/,
-      loader: 'style!css!less!postcss'
+      loader: "style!css!less!postcss"
     },
     {
       test: /\.json$/,
-      loader: 'json'
+      loader: "json"
     }
   ];
 }
@@ -167,7 +167,7 @@ module: {
   rules: [
     {
       test: /\.(less|css)$/,
-      use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+      use: ["style-loader", "css-loader", "less-loader", "postcss-loader"]
     }
   ];
 }
@@ -234,19 +234,19 @@ module: {
 loader 也可以使用 import 或者 require 直接指定:
 
 ```js
-require('style-loader!css-loader?minimize!./main.css');
-import Styles from 'style-loader!css-loader?modules!./styles.css';
+require("style-loader!css-loader?minimize!./main.css");
+import Styles from "style-loader!css-loader?modules!./styles.css";
 // 选项可以传递查询参数，例如 ?key=value&foo=bar，或者一个 JSON 对象，例如 ?{"key":"value","foo":"bar"}
 ```
 
 **Loader 的几种用法归纳**
 
 ```js
-第一种: use: ['xxx-loader', 'xxx-loader'];
+第一种: use: ["xxx-loader", "xxx-loader"];
 
-第二种: loader: ['style-loader', 'css-loader'];
+第二种: loader: ["style-loader", "css-loader"];
 
-第三种: use: [{ loader: 'style-loader' }, { loader: 'css-loader' }];
+第三种: use: [{ loader: "style-loader" }, { loader: "css-loader" }];
 ```
 
 ---
@@ -284,9 +284,9 @@ postcss-loader 的 autoprefixer 实现将 css3 属性添加上厂商前缀
       new webpack.DllPlugin({
         // 动态链接库的全局变量名称，需要和 output.library 中保持一致
         // 该字段的值也就是输出的 manifest.json 文件 中 name 字段的值
-        name: '[name]_dll_[hash]',
+        name: "[name]_dll_[hash]",
         // 描述动态链接库的 manifest.json 文件输出时的文件名称
-        path: path.join(__dirname, 'dist/dll', '[name].manifest.json')
+        path: path.join(__dirname, "dist/dll", "[name].manifest.json")
       })
     ];
   }
@@ -298,7 +298,7 @@ postcss-loader 的 autoprefixer 实现将 css3 属性添加上厂商前缀
     new DllReferencePlugin({
       context: __dirname,
       // 描述 react 动态链接库的文件内容
-      manifest: require('./dist/react.manifest.json')
+      manifest: require("./dist/react.manifest.json")
     })
   ];
   ```
@@ -372,7 +372,7 @@ postcss-loader 的 autoprefixer 实现将 css3 属性添加上厂商前缀
   {
     plugins: [
       new webpack.optimize.CommonsChunkPlugin({
-        name: ['react', 'common'], // 用于提取manifest
+        name: ["react", "common"], // 用于提取manifest
         minChunks: Infinity // Infinity不会打包任何多余的代码
       }),
       new webpack.HashedModuleIdsPlugin(),
@@ -403,12 +403,12 @@ module.exports = {
     runtimeChunk: true,
     splitChunks: {
       //范围:异步加载的模块中的引入import才进行拆分
-      chunks: 'async', // inital(入口) all(所有) async(异步)
+      chunks: "async", // inital(入口) all(所有) async(异步)
       minSize: 30000, // 大于30kb的
       minChunks: 1, // 引用一次就拆分
       maxAsyncRequests: 5, // 异步加载模块最多可以拆分的块数量
       maxInitialRequests: 3, // 一个入口模块最多可以拆分的块数量
-      automaticNameDelimiter: '~', // 模块拆分名称的连接符
+      automaticNameDelimiter: "~", // 模块拆分名称的连接符
       // 值为true:webpack会基于代码块和缓存组的key自动选择一个名称
       // 当一个名称匹配到相应的入口名称，这个入口会被移除。
       name: true,
@@ -503,7 +503,7 @@ module.exports = {
     /* webpackPrefetch: true */
     /*webpackChunkName: 'topic'*/
 
-    '../topic'
+    "../topic"
   );
   ```
 
@@ -542,12 +542,12 @@ module.exports = {
   对于使用 ES6 的代码,分析出模块之间的依赖关系，尽可能的把打散的模块合并到一个函数中去，但前提是不能造成代码冗余。 因此只有那些被引用了一次的模块才能被合并
 
   ```js
-  const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+  const ModuleConcatenationPlugin = require("webpack/lib/optimize/ModuleConcatenationPlugin");
 
   module.exports = {
     resolve: {
       // 针对 Npm 中的第三方模块优先采用 jsnext:main 中指向的 ES6 模块化语法的文件
-      mainFields: ['jsnext:main', 'browser', 'main']
+      mainFields: ["jsnext:main", "browser", "main"]
     },
     plugins: [
       // 开启 Scope Hoisting
@@ -562,17 +562,17 @@ module.exports = {
 
   ```js
   new webpack.DefinePlugin({
-    'process.env': {
+    "process.env": {
       NODE_ENV: '"development"'
     }
   });
 
   new webpack.DefinePlugin({
     PRODUCTION: JSON.stringify(true),
-    VERSION: JSON.stringify('5fa3b9'),
+    VERSION: JSON.stringify("5fa3b9"),
     BROWSER_SUPPORTS_HTML5: true,
-    TWO: '1+1',
-    'typeof window': JSON.stringify('object')
+    TWO: "1+1",
+    "typeof window": JSON.stringify("object")
   });
   ```
 
@@ -585,21 +585,21 @@ module.exports = {
   再举个例子，比如你在代码里是这么写的：
 
   ```js
-  if (!PRODUCTION) console.log('Debug info');
-  if (PRODUCTION) console.log('Production log');
+  if (!PRODUCTION) console.log("Debug info");
+  if (PRODUCTION) console.log("Production log");
   ```
 
   那么在编译生成的代码里就会是这样了：
 
   ```js
-  if (!true) console.log('Debug info');
-  if (true) console.log('Production log');
+  if (!true) console.log("Debug info");
+  if (true) console.log("Production log");
   ```
 
   而如果你用了 UglifyJsPlugin，则会变成这样：
 
   ```js
-  console.log('Production log');
+  console.log("Production log");
   ```
 
 - terser-webpack-plugin
@@ -609,7 +609,7 @@ module.exports = {
   压缩是发布前处理最耗时间的一个步骤，如果是你是在 webpack 4 中，只要几行代码，即可加速你的构建发布速度
 
   ```js
-  const TerserPlugin = require('terser-webpack-plugin');
+  const TerserPlugin = require("terser-webpack-plugin");
   module.exports = {
     optimization: {
       minimizer: [
@@ -643,7 +643,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src')
+        include: path.resolve(__dirname, "src")
       }
     ],
     //一些库，例如 jQuery 、ChartJS， 它们庞大又没有采用模块化标准，让 Webpack 去解析这些文件耗时又没有意义
@@ -655,19 +655,19 @@ module.exports = {
     当安装的第三方模块都放在项目根目录下的 ./node_modules 目录下时，没有必要按照默认的方式去一层层的寻找，可以指明存放第三方模块的绝对路径，以减少寻找，配置如下
     */
   resolve: {
-    modules: [path.resolve(__dirname, 'node_modules')],
+    modules: [path.resolve(__dirname, "node_modules")],
     // 入口文件配置
-    mainFields: ['main'],
+    mainFields: ["main"],
     alias: {
       /* 默认情况下 Webpack 会从入口文件 ./node_modules/react/react.js 开始递归的解析和处理依赖的几十个文件，这会时一个耗时的操作。 通过配置 resolve.alias 可以让 Webpack 在处理 React 库时，直接使用单独完整的 react.min.js 文件，从而跳过耗时的递归解析操作 */
-      react: path.resolve(__dirname, './node_modules/dist/react.min.js')
+      react: path.resolve(__dirname, "./node_modules/dist/react.min.js")
     },
     /*  如果这个列表越长，或者正确的后缀在越后面，就会造成尝试的次数越多，所以 resolve.extensions 的配置也会影响到构建的性能。 在配置 resolve.extensions 时你需要遵守以下几点，以做到尽可能的优化构建性能：
   
       后缀尝试列表要尽可能的小，不要把项目中不可能存在的情况写到后缀尝试列表中。
       频率出现最高的文件后缀要优先放在最前面，以做到尽快的退出寻找过程。
       在源码中写导入语句时，要尽可能的带上后缀，从而可以避免寻找过程。例如在你确定的情况下把 require('./data') 写成 require('./data.json')。 */
-    extension: ['js']
+    extension: ["js"]
   }
 };
 ```
@@ -714,25 +714,25 @@ DllPlugin 可以将特定的类库提前打包然后引入。这种方式可以�
 ```js
 // 单独配置在一个文件中
 // webpack.dll.conf.js
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 module.exports = {
   entry: {
     // 想统一打包的类库
-    vendor: ['react']
+    vendor: ["react"]
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].dll.js',
-    library: '[name]-[hash]'
+    path: path.join(__dirname, "dist"),
+    filename: "[name].dll.js",
+    library: "[name]-[hash]"
   },
   plugins: [
     new webpack.DllPlugin({
       // name 必须和 output.library 一致
-      name: '[name]-[hash]',
+      name: "[name]-[hash]",
       // 该属性需要与 DllReferencePlugin 中一致
       context: __dirname,
-      path: path.join(__dirname, 'dist', '[name]-manifest.json')
+      path: path.join(__dirname, "dist", "[name]-manifest.json")
     })
   ]
 };
@@ -748,7 +748,7 @@ module.exports = {
     new webpack.DllReferencePlugin({
       context: __dirname,
       // manifest 就是之前打包出来的 json 文件
-      manifest: require('./dist/vendor-manifest.json')
+      manifest: require("./dist/vendor-manifest.json")
     })
   ]
 };
@@ -766,9 +766,9 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader?cacheDirectory=true',
+        loader: "babel-loader?cacheDirectory=true",
         exclude: /node_modules/,
-        include: [resolve('src'), resolve('test')]
+        include: [resolve("src"), resolve("test")]
       }
     ]
   }
@@ -788,7 +788,7 @@ webpack3 使用 [webpack-parallel-uglify-plugin](https://github.com/gdborton/web
 压缩是发布前处理最耗时间的一个步骤，因此也需要采用并行多进程的方式来开启加速,如果是你是在 webpack 4 中，只要几行代码，即可加速你的构建发布速度
 
 ```js
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   optimization: {
     minimize: true,
@@ -888,7 +888,7 @@ module.exports = {
 webpack4 配置方式需要只需要开启 minimizer 选项即可
 
 ```js
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   optimization: {
@@ -913,13 +913,13 @@ module.exports = {
   //...
   optimization: {
     splitChunks: {
-      chunks: 'async',
+      chunks: "async",
       minSize: 30000,
       maxSize: 0,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
+      automaticNameDelimiter: "~",
       name: true,
       cacheGroups: {
         vendors: {
@@ -946,7 +946,7 @@ module.exports = {
 直接上代码吧
 
 ```js
-const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
+const PrepackWebpackPlugin = require("prepack-webpack-plugin").default;
 
 module.exports = {
   plugins: [new PrepackWebpackPlugin()]
@@ -958,16 +958,16 @@ module.exports = {
 在前文 Webpack 打包优化之体积篇中提到，引入 DllPlugin 和 DllReferencePlugin 来提前构建一些第三方库，来优化 Webpack 打包。而在生产环境时，就需要将提前构建好的包，同步到 dist 中；这里拷贝静态文件，你可以使用 copy-webpack-plugin 插件：把指定文件夹下的文件复制到指定的目录；其配置如下：
 
 ```js
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   plugins: [
     // ......
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        from: path.resolve(__dirname, "../static"),
         to: config.build.assetsSubDirectory,
-        ignore: ['.*']
+        ignore: [".*"]
       }
     ])
   ]
@@ -1084,8 +1084,8 @@ ProvidePlugin 用来自动加载模块，而不必到处 import 或 require
 
 ```js
 new webpack.ProvidePlugin({
-  $: 'jquery',
-  jQuery: 'jquery'
+  $: "jquery",
+  jQuery: "jquery"
 });
 ```
 
@@ -1098,11 +1098,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: require.resolve('jquery'),
+        test: require.resolve("jquery"),
         use: [
           {
-            loader: 'expose-loader',
-            options: '$'
+            loader: "expose-loader",
+            options: "$"
           }
         ]
       }
@@ -1112,7 +1112,7 @@ module.exports = {
 
 // 在应用代码中使用
 
-import $ from 'jquery';
+import $ from "jquery";
 
 // 就能直接读取到window.$
 ```
@@ -1125,14 +1125,36 @@ html 已经通过 script 引入了一些外部 CDN 模块(例如 `vue.min.js`), 
 在 webpack 配置中, 使用 external 选项,将 Vue 给排除在外,以免引起模块多次打包,体积增大
 :::
 
-
 ## Long Term Cache
 
 `webpack`的长效缓存总结如下:
 
-
 [![长效缓存脑图](https://i.loli.net/2020/07/21/tBnaVH8xhedoQ1E.png)](http://naotu.baidu.com/file/1cb8b00b75453d162915f0296cc4c7c8?token=324bd0a3344353dd)
 
+## SourceMap
+
+在`Webpack`中常见的`devtool`的配置如下:
+
+- devtool: source-map
+- devtool: eval-source-map
+- devtool: cheap-module-source-map
+- devtool: cheap-module-eval-source-map
+
+### devtool: source-map
+
+这种方式的特点是大而全, 会单独生成一个`sourcemap`文件, 在源码中会标识当前的行和列
+
+### devtool: eval-source-map
+
+这种方式不会产生单独的文件, 但是可以显示行和列
+
+### cheap-module-source-map
+
+这种不会产生列,列信息对于调试不是那么重要, 但是会产生一个单独的映射文件, 监控系统中上报`sourcemap`首选当前模式
+
+### cheap-module-eval-source-map
+
+这种不会产生文件, 集成在打包后的文件中, 同时也没有列信息。可以在开发环境中使用
 
 ## Git 提交钩子(husky 和 yorkie)
 

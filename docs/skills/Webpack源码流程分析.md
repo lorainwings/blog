@@ -14,7 +14,7 @@ npm run (build/dev)
 
 我们直接执行该命令, 那么`webpack`在这个过程中做了什么操作呢?
 
-## 首先找到命令的执行入口
+## 命令执行入口
 
 npm 会让命令行工具进入 `node_modules/bin`目录查找是否存在`webpack.sh`或者`webpack.cmd`, 存在就执行, 否则抛出错误
 
@@ -22,7 +22,7 @@ npm 会让命令行工具进入 `node_modules/bin`目录查找是否存在`webpa
 
 那么, webpack 实际的执行入口是`node_modules/webpack/bin/webpack.js`
 
-## 分析 webpack 的入口文件: webpack.js 源码
+## Webpack 源码入口分析
 
 通过结构分析, 可以将该源码拆分为下面几个模块
 
@@ -44,7 +44,7 @@ npm 会让命令行工具进入 `node_modules/bin`目录查找是否存在`webpa
 
 ![webpack-cli](/blog/images/webpack-cli-pipe.png) -->
 
-![webpack-cli](/blog/images/webpack-non-compiler.png)
+![webpack-cli](/blog/skills/images/webpack-non-compiler.png)
 
 - 引入`yargs`, 对命令行进行定制
 - 分析命令行参数, 对各个参数进行转换, 组成编译配置项
@@ -74,10 +74,119 @@ npm 会让命令行工具进入 `node_modules/bin`目录查找是否存在`webpa
 
 ![tapable-hooks-type](/blog/skills/images/tapable-hooks-type.png)
 
+- `Bail`是保险的意思(熔断)
+
+- `Waterfall`是瀑布的意思(上一个结果传给下一个)
+
+- `Loop`是循环的意思(返回 `true` 会继续循环当前)
+
 ### Tapable 的使用
 
 `Tapable`暴露出来的都是类方法, new 一个类方法获取我们需要的钩子
 
-class 接受数组参数 options, 非必传。类方法会根据传参， 接受同样数量的参数。
+class 接受数组参数 options, 非必传。类方法会根据传参， 接受同样数量的参数
+
+#### 同步钩子
+
+`hooks` 的同步注册方式使用`tap`, 调用同步钩子方法使用`call`
+
+```js
+const { SyncHook }  = require('tapable');
+class TestSync{
+  constructor(){
+    this.hooks = {
+      arch: new SyncHook(['name']); // 参数是一个数组, 表示参数个数
+    }
+  }
+  // 订阅
+  tap(){
+    this.hooks.arch.tap('type',(value)=>{
+      console.log(value);
+    });
+    this.hooks.arch.tap('class',(value)=>{
+      console.log(value);
+    });
+    this.hooks.arch.tap('age',(value)=>{
+      console.log(value);
+    });
+  }
+  //发布
+  start(){
+    this.hooks.arch.call('...');
+  }
+}
+
+```
+
+#### 异步钩子
+
+`hooks` 的异步注册方式使用`tapAsync`或者`tapPromise`, 调用异步钩子方式使用`callAsync`或者`promise`
+
+```js
+// 异步并发钩子
+const { AsyncParallelHook }  = require('tapable');
+class TestAsync{
+  constructor(){
+    this.hooks = {
+      arch: new AsyncParallelHook(['name']); // 参数是一个数组, 表示参数个数
+    }
+  }
+  // 订阅
+  tapAsync(){
+    this.hooks.arch.tapAsync('type',(value, cb)=>{
+      setTimeout(()=>{
+        console.log(value);
+        cb(); // 该次异步执行完成
+      });
+    });
+    this.hooks.arch.tapAsync('class',(value, cb)=>{
+       setTimeout(()=>{
+        console.log(value);
+        cb(); // 该次异步执行完成
+      });
+    });
+  }
+  //发布
+  startAsync(){
+    this.hooks.arch.callAsync('args',()=>{
+      console.log('钩子执行完成')
+    });
+  }
+}
+
+class TestAsyncPromise{
+  constructor(){
+    this.hooks = {
+      arch: new AsyncParallelHook(['name']); // 参数是一个数组, 表示参数个数
+    }
+  }
+  // 订阅
+  tapPromise(){
+    this.hooks.arch.tapPromise('type',(value)=>{
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          console.log(value);
+          resolve(); // 该次异步执行完成
+        });
+      });
+    });
+    this.hooks.arch.tapPromise('class',(value)=>{
+       return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          console.log(value);
+          resolve(); // 该次异步执行完成
+        });
+      });
+    });
+  }
+  //发布
+  startPromise(){
+    this.hooks.arch.promise('args').then(()=>{
+      console.log('钩子执行完成')
+    });
+  }
+}
 
 
+
+```

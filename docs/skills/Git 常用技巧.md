@@ -88,6 +88,13 @@ git rebase -i  <start-commit>  <end-commit>
 
 - 复制某个分支的一段 commit 进入当前分支
 
+:::tip 语法:
+// base 分支名称
+// from 待合并片段的起始 commitId（不包含）
+// to 待合并片段的结束 commitId（包含）
+git rebase --onto base from to
+:::
+
 ```sh
 # 被复制的分支上执行
 git checkout -b  <new-branch>  <end-commit>

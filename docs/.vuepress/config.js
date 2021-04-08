@@ -129,7 +129,7 @@ module.exports = {
         }
       ]
     },
-    lastUpdated: '更新时间',
+    // lastUpdated: '更新时间',
     smoothScroll: true,
     docsDir: 'docs'
   },
